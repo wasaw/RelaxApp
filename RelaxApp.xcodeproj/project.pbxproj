@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */; };
 		BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */; };
-		BB6C0A06294B1CCF00A3F662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A05294B1CCF00A3F662 /* ViewController.swift */; };
 		BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */; };
 		BB6C0A0E294B1CD400A3F662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */; };
+		BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A16294B548700A3F662 /* HomeViewController.swift */; };
+		BB6C0A19294B54C900A3F662 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A18294B54C900A3F662 /* HomePresenter.swift */; };
+		BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1A294B54F500A3F662 /* HomeInteractor.swift */; };
+		BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */; };
+		BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1E294B557300A3F662 /* HomeRouter.swift */; };
+		BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A21294B560D00A3F662 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB6C0A05294B1CCF00A3F662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB6C0A0D294B1CD400A3F662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB6C0A0F294B1CD400A3F662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB6C0A16294B548700A3F662 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BB6C0A18294B54C900A3F662 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		BB6C0A1A294B54F500A3F662 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		BB6C0A1E294B557300A3F662 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		BB6C0A21294B560D00A3F662 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,43 @@
 		BB6C0A00294B1CCF00A3F662 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
-				BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */,
-				BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */,
-				BB6C0A05294B1CCF00A3F662 /* ViewController.swift */,
+				BB6C0A24294B561700A3F662 /* App */,
+				BB6C0A15294B539600A3F662 /* Home */,
+				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
 				BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */,
 				BB6C0A0F294B1CD400A3F662 /* Info.plist */,
 			);
 			path = RelaxApp;
+			sourceTree = "<group>";
+		};
+		BB6C0A15294B539600A3F662 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BB6C0A16294B548700A3F662 /* HomeViewController.swift */,
+				BB6C0A18294B54C900A3F662 /* HomePresenter.swift */,
+				BB6C0A1A294B54F500A3F662 /* HomeInteractor.swift */,
+				BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */,
+				BB6C0A1E294B557300A3F662 /* HomeRouter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BB6C0A20294B55F900A3F662 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BB6C0A21294B560D00A3F662 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BB6C0A24294B561700A3F662 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */,
+				BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB6C0A06294B1CCF00A3F662 /* ViewController.swift in Sources */,
+				BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
+				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
+				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
+				BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */,
+				BB6C0A19294B54C900A3F662 /* HomePresenter.swift in Sources */,
+				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
