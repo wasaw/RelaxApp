@@ -11,6 +11,9 @@ import UIKit
 
 extension UIColor {
     static let background = UIColor(displayP3Red: 46/255, green: 78/255, blue: 116/255, alpha: 1)
+    static let textColor = UIColor(displayP3Red: 243/255, green: 249/255, blue: 249/255, alpha: 1)
+    static let placeholderColor = UIColor(displayP3Red: 243/255, green: 249/255, blue: 249/255, alpha: 0.4)
+    static let buttonBackground = UIColor(displayP3Red: 152/255, green: 189/255, blue: 221/255, alpha: 1)
 }
 
 //  MARK: - UIView
@@ -24,7 +27,7 @@ extension UIView {
             leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
         if let top = top {
-            topAnchor.constraint(equalTo: top, constant: paddingRight).isActive = true
+            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
         }
         if let right = right {
             rightAnchor.constraint(equalTo: right, constant: paddingRight).isActive = true
@@ -38,5 +41,17 @@ extension UIView {
         if let height = height {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
+    }
+}
+
+//  MARK: - UITextField
+
+extension UITextField {
+    func homeTextField(withPlaceholder: String) -> UITextField {
+        let tf = UITextField()
+        tf.font = UIFont.boldSystemFont(ofSize: 18)
+        tf.textColor = .textColor
+        tf.attributedPlaceholder = NSAttributedString(string: withPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeholderColor])
+        return tf
     }
 }
