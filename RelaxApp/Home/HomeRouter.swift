@@ -5,19 +5,30 @@
 //  Created by Александр Меренков on 15.12.2022.
 //
 
+import UIKit
+
 protocol HomeRouterProtocol: AnyObject {
-    var viewController: HomeViewProtocol? { get set }
+    var viewController: HomeViewController? { get set }
+    func presentChoiseAsteroid()
 }
 
 class HomeRouter: HomeRouterProtocol {
     
 //    MARK: - Properties
     
-    weak var viewController: HomeViewProtocol?
+    weak var viewController: HomeViewController?
     
 //    MARK: - Lifecycle
     
-    init(viewController: HomeViewProtocol? = nil) {
+    init(viewController: HomeViewController? = nil) {
         self.viewController = viewController
+    }
+    
+//    MARK: - Helpers
+    
+    func presentChoiseAsteroid() {
+        let vc = ChoiseAsteroidViewController()
+        vc.modalPresentationStyle = .fullScreen
+        viewController?.present(vc, animated: true)
     }
 }

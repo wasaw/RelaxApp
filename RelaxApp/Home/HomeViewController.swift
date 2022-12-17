@@ -63,6 +63,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configurator.configure(with: self)
         configureUI()
         view.backgroundColor = .background
     }
@@ -91,7 +92,7 @@ class HomeViewController: UIViewController {
 //    MARK: - Selectors
     
     @objc private func handleSubmitButton() {
-        
+        presenter?.sendToFlight()
     }
 }
 

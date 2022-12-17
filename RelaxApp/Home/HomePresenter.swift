@@ -8,6 +8,7 @@
 protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
+    func sendToFlight()
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -21,5 +22,11 @@ class HomePresenter: HomePresenterProtocol {
     
     init(view: HomeViewProtocol? = nil) {
         self.view = view
+    }
+    
+//    MARK: - Helpers
+    
+    func sendToFlight() {
+        router?.presentChoiseAsteroid()
     }
 }

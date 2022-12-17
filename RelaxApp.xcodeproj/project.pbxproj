@@ -17,6 +17,11 @@
 		BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */; };
 		BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1E294B557300A3F662 /* HomeRouter.swift */; };
 		BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A21294B560D00A3F662 /* Extensions.swift */; };
+		BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */; };
+		BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */; };
+		BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */; };
+		BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */; };
+		BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		BB6C0A1E294B557300A3F662 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		BB6C0A21294B560D00A3F662 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidViewController.swift; sourceTree = "<group>"; };
+		BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidPresenter.swift; sourceTree = "<group>"; };
+		BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidInteractor.swift; sourceTree = "<group>"; };
+		BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidConfigurator.swift; sourceTree = "<group>"; };
+		BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 			children = (
 				BB6C0A24294B561700A3F662 /* App */,
 				BB6C0A15294B539600A3F662 /* Home */,
+				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
 				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
 				BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */,
@@ -101,6 +112,18 @@
 				BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */ = {
+			isa = PBXGroup;
+			children = (
+				BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */,
+				BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */,
+				BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */,
+				BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */,
+				BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */,
+			);
+			path = ChoiseAsteroid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,10 +197,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */,
+				BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */,
+				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
+				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
+				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
+				BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */,
 				BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */,
 				BB6C0A19294B54C900A3F662 /* HomePresenter.swift in Sources */,
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
