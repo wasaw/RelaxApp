@@ -22,6 +22,10 @@
 		BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */; };
 		BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */; };
 		BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */; };
+		BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */; };
+		BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */; };
+		BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */; };
+		BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B2294DF6C600472AA6 /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,11 @@
 		BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidInteractor.swift; sourceTree = "<group>"; };
 		BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidConfigurator.swift; sourceTree = "<group>"; };
 		BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidRouter.swift; sourceTree = "<group>"; };
+		BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		BB73B8B2294DF6C600472AA6 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		BB73B8B4294DFE2300472AA6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				BB6C0A24294B561700A3F662 /* App */,
+				BB73B8B1294DF6B700472AA6 /* Entity */,
+				BB73B8AE294DF09400472AA6 /* Helpers */,
 				BB6C0A15294B539600A3F662 /* Home */,
 				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
+				BB73B8A9294DE6A000472AA6 /* API */,
 				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
 				BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */,
@@ -124,6 +136,32 @@
 				BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */,
 			);
 			path = ChoiseAsteroid;
+			sourceTree = "<group>";
+		};
+		BB73B8A9294DE6A000472AA6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */,
+				BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BB73B8AE294DF09400472AA6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */,
+				BB73B8B4294DFE2300472AA6 /* Config.xcconfig */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BB73B8B1294DF6B700472AA6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BB73B8B2294DF6C600472AA6 /* Entity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +239,15 @@
 				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
+				BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */,
 				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
+				BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */,
+				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
 				BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */,
+				BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */,
 				BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */,
 				BB6C0A19294B54C900A3F662 /* HomePresenter.swift in Sources */,
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
@@ -228,6 +270,7 @@
 /* Begin XCBuildConfiguration section */
 		BB6C0A10294B1CD400A3F662 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB73B8B4294DFE2300472AA6 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -288,6 +331,7 @@
 		};
 		BB6C0A11294B1CD400A3F662 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB73B8B4294DFE2300472AA6 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
