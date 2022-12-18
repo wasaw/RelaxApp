@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JsonHelper {
+struct JsonHelper {
     static let shared = JsonHelper()
     
 //    MARK: - Properties

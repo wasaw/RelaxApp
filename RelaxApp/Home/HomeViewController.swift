@@ -11,7 +11,7 @@ protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
 }
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
 //    MARK: - Properties
     

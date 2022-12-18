@@ -9,7 +9,7 @@ protocol ChoiseAsteroidConfiguratorProtocol: AnyObject {
     func configure(with viewController: ChoiseAsteroidViewController)
 }
 
-class ChoiseAsteroidConfigurator: ChoiseAsteroidConfiguratorProtocol {
+final class ChoiseAsteroidConfigurator: ChoiseAsteroidConfiguratorProtocol {
     func configure(with viewController: ChoiseAsteroidViewController) {
         let presenter = ChoiseAsteroidPresenter(view: viewController)
         let interactor = ChoiseAsteroidInteractor(presenter: presenter)

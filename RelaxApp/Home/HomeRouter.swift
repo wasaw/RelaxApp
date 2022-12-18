@@ -12,7 +12,7 @@ protocol HomeRouterProtocol: AnyObject {
     func presentChoiseAsteroid()
 }
 
-class HomeRouter: HomeRouterProtocol {
+final class HomeRouter: HomeRouterProtocol {
     
 //    MARK: - Properties
     

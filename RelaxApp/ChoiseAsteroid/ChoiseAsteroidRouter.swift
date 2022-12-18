@@ -9,7 +9,7 @@ protocol ChoiseAsteroidRouterProtocol: AnyObject {
     var viewController: ChoiseAsteroidViewController? { get set }
 }
 
-class ChoiseAsteroidRouter: ChoiseAsteroidRouterProtocol {
+final class ChoiseAsteroidRouter: ChoiseAsteroidRouterProtocol {
     
 //    MARK: - Properties
     

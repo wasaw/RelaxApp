@@ -26,6 +26,7 @@
 		BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */; };
 		BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */; };
 		BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B2294DF6C600472AA6 /* Entity.swift */; };
+		BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
 		BB73B8B2294DF6C600472AA6 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		BB73B8B4294DFE2300472AA6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */,
 				BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */,
 				BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */,
+				BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */,
 			);
 			path = ChoiseAsteroid;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
 				BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */,
 				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
+				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,

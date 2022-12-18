@@ -9,7 +9,7 @@ protocol HomeConfiguratorProtocol: AnyObject {
     func configure(with viewController: HomeViewController)
 }
 
-class HomeConfigurator: HomeConfiguratorProtocol {
+final class HomeConfigurator: HomeConfiguratorProtocol {
     func configure(with viewController: HomeViewController) {
         let presenter = HomePresenter(view: viewController)
         let interactor = HomeInteractor(presenter: presenter)

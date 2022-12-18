@@ -11,7 +11,7 @@ struct NetworkConfiguration {
     
 //    MARK: - Properties
     
-    private let apiUrl = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-12-15&end_date=2022-12-17&api_key="
+    private let apiUrl = "https://api.nasa.gov/neo/rest/v1/feed?"
     private let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String ?? ""
 
 //    MARK: - Helpers

@@ -20,8 +20,8 @@ final class NetworkService {
     
 //    MARK: - Helpers
     
-    func request() {
-        let apiPath = config.getUrl() + config.getApiKey()
+    func request(date: String, completion: @escaping((AsteroidInformation?) -> Void)) {
+        let apiPath = config.getUrl() + "start_date=" + date + "&end_date=" + date + "&api_key=" + config.getApiKey()
         guard let url = URL(string: apiPath) else { return }
         let urlReques = URLRequest(url: url)
         
@@ -34,6 +34,7 @@ final class NetworkService {
             if let data = data {
                 DispatchQueue.main.async {
                     let decodeData = JsonHelper.shared.decode(data: data)
+                    completion(decodeData)
                 }
             }
         }

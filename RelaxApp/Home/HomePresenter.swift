@@ -11,7 +11,7 @@ protocol HomePresenterProtocol: AnyObject {
     func sendToFlight()
 }
 
-class HomePresenter: HomePresenterProtocol {
+final class HomePresenter: HomePresenterProtocol {
     
 //    MARK: - Properties
     weak var view: HomeViewProtocol?

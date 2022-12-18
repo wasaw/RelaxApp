@@ -9,7 +9,7 @@ protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
 }
 
-class HomeInteractor: HomeInteractorProtocol {
+final class HomeInteractor: HomeInteractorProtocol {
     
 //    MARK: - Properties
     weak var presenter: HomePresenterProtocol?

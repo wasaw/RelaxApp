@@ -19,8 +19,21 @@ struct AsteridStruct: Codable {
 
 struct ApproachData: Codable {
     let relative_velocity: RevativeVelocity
+    let miss_distance: MissDistance
 }
 
 struct RevativeVelocity: Codable {
     let kilometers_per_hour: String
+}
+
+struct MissDistance: Codable {
+    let kilometers: String
+}
+
+struct Asteroid {
+    let id: String
+    let name: String
+    let isPotentiallyHazardous: Bool
+    let speed: String
+    let distance: String
 }
