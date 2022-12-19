@@ -58,7 +58,9 @@ extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
 //  MARK: - UICollectionViewDelegate
 
 extension ChoiseAsteroidViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.setTravelTime()
+    }
 }
 
 //  MARK: - UICollectionViewDataSource
@@ -81,7 +83,7 @@ extension ChoiseAsteroidViewController: UICollectionViewDataSource {
 
 extension ChoiseAsteroidViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+        return CGSize(width: 160, height: 180)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

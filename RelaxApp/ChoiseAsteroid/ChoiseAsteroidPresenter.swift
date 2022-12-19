@@ -10,6 +10,7 @@ protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     var interactor: ChoiseAsteroidInteractorProtocol? { get set }
     var router: ChoiseAsteroidRouterProtocol? { get set }
     func asteroidProcessing(asteroidInformation: AsteroidInformation, date: String)
+    func setTravelTime()
 }
 
 final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
@@ -40,10 +41,14 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
             guard let name = loadInformation?[i].name else { return }
             guard let isPotentially = loadInformation?[i].is_potentially_hazardous_asteroid else { return }
             guard let speed = loadInformation?[i].close_approach_data[0].relative_velocity.kilometers_per_hour else { return }
-            guard let distance = loadInformation?[i].close_approach_data[0].miss_distance.kilometers else { return }
-            let item = Asteroid(id: id, name: name, isPotentiallyHazardous: isPotentially, speed: speed, distance: distance)
+            guard let distance = loadInformation?[i].close_approach_data[0].miss_distance.kilometers.components(separatedBy: ".") else { return }
+            let item = Asteroid(id: id, name: name, isPotentiallyHazardous: isPotentially, speed: speed, distance: distance[0])
             asteroid.append(item)
         }
         view?.getAsteroidInformation(asteroid: asteroid)
+    }
+    
+    func setTravelTime() {
+        router?.presentTravelTime()
     }
 }
