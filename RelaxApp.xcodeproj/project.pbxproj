@@ -32,6 +32,7 @@
 		BB73B8BD294F598B00472AA6 /* TravelTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */; };
 		BB73B8BF294F59D800472AA6 /* TravelTimeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */; };
 		BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */; };
+		BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C22950555B00472AA6 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeInteractor.swift; sourceTree = "<group>"; };
 		BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeConfigurator.swift; sourceTree = "<group>"; };
 		BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeRouter.swift; sourceTree = "<group>"; };
+		BB73B8C22950555B00472AA6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				BB6C0A15294B539600A3F662 /* Home */,
 				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
 				BB73B8B7294F527300472AA6 /* TravelTime */,
+				BB73B8C22950555B00472AA6 /* TabBarController.swift */,
 				BB73B8A9294DE6A000472AA6 /* API */,
 				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
@@ -267,6 +270,7 @@
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
 				BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */,
+				BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */,
 				BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */,
 				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
 				BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */,

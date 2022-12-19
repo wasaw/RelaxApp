@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
         } else {
             self.window = UIWindow()
-            let vc = HomeViewController()
+            let vc = TabBarController()
             self.window?.rootViewController = vc
             self.window?.makeKeyAndVisible()
         }
