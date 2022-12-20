@@ -5,6 +5,8 @@
 //  Created by Александр Меренков on 17.12.2022.
 //
 
+import Foundation
+
 struct AsteroidInformation: Codable {
     let element_count: Int
     let near_earth_objects: [String: [AsteridStruct]]
@@ -23,7 +25,7 @@ struct ApproachData: Codable {
 }
 
 struct RevativeVelocity: Codable {
-    let kilometers_per_hour: String
+    let kilometers_per_second: String
 }
 
 struct MissDistance: Codable {
@@ -36,4 +38,10 @@ struct Asteroid {
     let isPotentiallyHazardous: Bool
     let speed: String
     let distance: String
+}
+
+struct Credentials {
+    let nickname: String
+    let describe: String
+    let start: Date?
 }

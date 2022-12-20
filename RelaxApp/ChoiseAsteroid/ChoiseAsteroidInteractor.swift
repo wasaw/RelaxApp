@@ -9,6 +9,7 @@ import Foundation
 
 protocol ChoiseAsteroidInteractorProtocol: AnyObject {
     var presenter: ChoiseAsteroidPresenterProtocol? { get set }
+    func saveDepartureInformation(user: Credentials, asteroid: Asteroid)
 }
 
 final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
@@ -24,6 +25,8 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
         loadInformation()
     }
     
+//    MARK: - Helpers
+    
     private func loadInformation() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -33,5 +36,9 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
             guard let response = response else { return }
             self.presenter?.asteroidProcessing(asteroidInformation: response, date: currnetDateString)
         }
+    }
+    
+    func saveDepartureInformation(user: Credentials, asteroid: Asteroid) {
+        DatabaseService.shared.saveInformation(user: user, asteroid: asteroid)
     }
 }

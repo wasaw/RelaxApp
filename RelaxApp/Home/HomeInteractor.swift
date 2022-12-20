@@ -7,6 +7,8 @@
 
 protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
+    func isFirstLaunch()
+    func saveLocalInformation(_ user: Credentials)
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
@@ -18,5 +20,16 @@ final class HomeInteractor: HomeInteractorProtocol {
     
     init(presenter: HomePresenterProtocol? = nil) {
         self.presenter = presenter
+    }
+    
+//    MARK: - Helpers
+    
+    func isFirstLaunch() {
+        let answer = DatabaseService.shared.isEmpty()
+        presenter?.launchView(isFirst: answer)
+    }
+    
+    func saveLocalInformation(_ user: Credentials) {
+        
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
+    func launchView(_ isFirst: Bool)
 }
 
 final class HomeViewController: UIViewController {
@@ -64,11 +65,20 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configurator.configure(with: self)
-        configureUI()
+        presenter?.isFirstLaunch()
         view.backgroundColor = .background
     }
     
 //    MARK: - Helpers
+    
+    func launchView(_ isFirst: Bool) {
+//        if isFirst {
+//
+//        } else {
+//            configureUI()
+//        }
+        configureUI()
+    }
     
     private func configureUI() {
         view.addSubview(nicknameLabel)
@@ -92,7 +102,10 @@ final class HomeViewController: UIViewController {
 //    MARK: - Selectors
     
     @objc private func handleSubmitButton() {
-        presenter?.sendToFlight()
+        guard let nickname = nicknameTextField.text else { return }
+        guard let describe = descriptionTextField.text else { return }
+        let user = Credentials(nickname: nickname, describe: describe, start: nil)
+        presenter?.sendToFlight(user)
     }
 }
 

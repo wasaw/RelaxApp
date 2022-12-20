@@ -20,8 +20,20 @@ final class ChoiseAsteroidViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     private var asteroid: [Asteroid] = []
+    private let user: Credentials
     
 //    MARK: - Lifecycle
+    
+    init(presenter: ChoiseAsteroidPresenterProtocol? = nil, collectionView: UICollectionView? = nil, user: Credentials) {
+        self.presenter = presenter
+        self.collectionView = collectionView
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +71,7 @@ extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
 
 extension ChoiseAsteroidViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.setTravelTime()
+        presenter?.setTravelTime(user: user, asteroid: asteroid[indexPath.item])
     }
 }
 

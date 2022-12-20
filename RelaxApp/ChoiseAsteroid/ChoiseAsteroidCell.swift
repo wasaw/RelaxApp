@@ -14,7 +14,7 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
     
     private let asteroidImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "Asteroid")
+        view.image = UIImage(named: "asteroid")
         return view
     }()
     private let titleLabel: UILabel = {
