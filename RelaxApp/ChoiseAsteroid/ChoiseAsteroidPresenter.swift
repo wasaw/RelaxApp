@@ -50,6 +50,6 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     
     func setTravelTime(user: Credentials, asteroid: Asteroid) {
         interactor?.saveDepartureInformation(user: user, asteroid: asteroid)
-//        router?.presentTravelTime(user: user, asteroid: asteroid)
+        router?.presentTravelTime()
     }
 }

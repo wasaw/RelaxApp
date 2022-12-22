@@ -38,6 +38,7 @@ struct Asteroid {
     let isPotentiallyHazardous: Bool
     let speed: String
     let distance: String
+    var user: Credentials? = nil
 }
 
 struct Credentials {

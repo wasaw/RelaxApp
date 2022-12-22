@@ -9,6 +9,7 @@ protocol TravelTimePresenterProtocol: AnyObject {
     var view: TravelTimeViewProtocol? { get set }
     var interactor: TravelTimeInteractorProtocol? { get set }
     var router: TravelTimeRouterProtocol? { get set }
+    func presentLocalInformation(_ ansewer: [Asteroid])
 }
 
 final class TravelTimePresenter: TravelTimePresenterProtocol {
@@ -24,5 +25,11 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
         self.view = view
         self.interactor = interactor
         self.router = router
+    }
+    
+//    MARK: - Helpers
+    
+    func presentLocalInformation(_ ansewer: [Asteroid]) {
+        view?.presentLocalInformation(asteroids: ansewer)
     }
 }

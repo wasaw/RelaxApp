@@ -7,6 +7,7 @@
 
 protocol TravelTimeInteractorProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
+    func loadLocalInformation()
 }
 
 final class TravelTimeInteractor: TravelTimeInteractorProtocol {
@@ -18,5 +19,14 @@ final class TravelTimeInteractor: TravelTimeInteractorProtocol {
     
     init(presenter: TravelTimePresenterProtocol? = nil) {
         self.presenter = presenter
+        loadLocalInformation()
+    }
+    
+//    MARK: - Helpers
+    
+    func loadLocalInformation() {
+        let answer = DatabaseService.shared.loadInformation()
+        guard let answer = answer else { return }
+        presenter?.presentLocalInformation(answer)
     }
 }

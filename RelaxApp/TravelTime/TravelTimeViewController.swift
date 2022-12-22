@@ -9,6 +9,7 @@ import UIKit
 
 protocol TravelTimeViewProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
+    func presentLocalInformation(asteroids: [Asteroid])
 }
 
 final class TravelTimeViewController: UIViewController {
@@ -29,5 +30,7 @@ final class TravelTimeViewController: UIViewController {
 //  MARK: - TravelTimeProtocol
 
 extension TravelTimeViewController: TravelTimeViewProtocol {
-    
+    func presentLocalInformation(asteroids: [Asteroid]) {
+        
+    }
 }

@@ -68,4 +68,33 @@ class DatabaseService {
             print(error.localizedDescription)
         }
     }
+    
+    func loadInformation() -> [Asteroid]? {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            var asteroids: [Asteroid] = []
+            for data in result {
+                let id = data.value(forKey: "id") as? String ?? ""
+                let name = data.value(forKey: "name") as? String ?? ""
+                let distance = data.value(forKey: "distance") as? String ?? ""
+                let speed = data.value(forKey: "speed") as? String ?? ""
+                guard let visitor = data.value(forKey: "visitor") as? NSManagedObject else { return nil }
+                
+                let nickname = visitor.value(forKey: "nickname") as? String ?? ""
+                let describe = visitor.value(forKey: "describe") as? String ?? ""
+                let start = visitor.value(forKey: "start") as? Date
+                let user = Credentials(nickname: nickname, describe: describe, start: start)
+                let asteroid = Asteroid(id: id, name: name, isPotentiallyHazardous: false, speed: speed, distance: distance, user: user)
+                asteroids.append(asteroid)
+            }
+            
+            return asteroids
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
 }
