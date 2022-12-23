@@ -5,10 +5,15 @@
 //  Created by Александр Меренков on 15.12.2022.
 //
 
+import Foundation
+
 protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
-    func sendToFlight()
+    func sendToFlight(nickname: String, describe: String)
+    func isFirstLaunch()
+    func launchView(isFirst: Bool)
+    func saveLocalInformation(user: Credentials)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -26,7 +31,21 @@ final class HomePresenter: HomePresenterProtocol {
     
 //    MARK: - Helpers
     
-    func sendToFlight() {
-        router?.presentChoiseAsteroid()
+    func sendToFlight(nickname: String, describe: String) {
+        let currentDate = Date().timeIntervalSince1970
+        let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
+        router?.presentChoiseAsteroid(for: user)
+    }
+    
+    func isFirstLaunch() {
+        interactor?.isFirstLaunch()
+    }
+    
+    func launchView(isFirst: Bool) {
+        view?.launchView(isFirst)
+    }
+    
+    func saveLocalInformation(user: Credentials) {
+        interactor?.saveLocalInformation(user)
     }
 }

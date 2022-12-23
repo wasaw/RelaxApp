@@ -7,6 +7,7 @@
 
 protocol ChoiseAsteroidRouterProtocol: AnyObject {
     var viewController: ChoiseAsteroidViewController? { get set }
+    func presentTravelTime()
 }
 
 final class ChoiseAsteroidRouter: ChoiseAsteroidRouterProtocol {
@@ -19,5 +20,13 @@ final class ChoiseAsteroidRouter: ChoiseAsteroidRouterProtocol {
     
     init(viewController: ChoiseAsteroidViewController? = nil) {
         self.viewController = viewController
+    }
+    
+//    MARK: - Helpers
+    
+    func presentTravelTime() {
+        let vc = TravelTimeViewController()
+        vc.modalPresentationStyle = .fullScreen
+        viewController?.present(vc, animated: true)
     }
 }

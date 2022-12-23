@@ -27,6 +27,16 @@
 		BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */; };
 		BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B2294DF6C600472AA6 /* Entity.swift */; };
 		BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */; };
+		BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B8294F52B700472AA6 /* TravelTimeViewController.swift */; };
+		BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BA294F591200472AA6 /* TravelTimePresenter.swift */; };
+		BB73B8BD294F598B00472AA6 /* TravelTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */; };
+		BB73B8BF294F59D800472AA6 /* TravelTimeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */; };
+		BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */; };
+		BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C22950555B00472AA6 /* TabBarController.swift */; };
+		BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C4295095B900472AA6 /* DatabaseService.swift */; };
+		BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */; };
+		BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */; };
+		BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +63,16 @@
 		BB73B8B2294DF6C600472AA6 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		BB73B8B4294DFE2300472AA6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidCell.swift; sourceTree = "<group>"; };
+		BB73B8B8294F52B700472AA6 /* TravelTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeViewController.swift; sourceTree = "<group>"; };
+		BB73B8BA294F591200472AA6 /* TravelTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePresenter.swift; sourceTree = "<group>"; };
+		BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeInteractor.swift; sourceTree = "<group>"; };
+		BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeConfigurator.swift; sourceTree = "<group>"; };
+		BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeRouter.swift; sourceTree = "<group>"; };
+		BB73B8C22950555B00472AA6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BB73B8C4295095B900472AA6 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		BB73B8C7295096DE00472AA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeEntity.swift; sourceTree = "<group>"; };
+		BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +89,7 @@
 		BB6C09F5294B1CCF00A3F662 = {
 			isa = PBXGroup;
 			children = (
+				BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */,
 				BB6C0A00294B1CCF00A3F662 /* RelaxApp */,
 				BB6C09FF294B1CCF00A3F662 /* Products */,
 			);
@@ -90,6 +111,8 @@
 				BB73B8AE294DF09400472AA6 /* Helpers */,
 				BB6C0A15294B539600A3F662 /* Home */,
 				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
+				BB73B8B7294F527300472AA6 /* TravelTime */,
+				BB73B8C22950555B00472AA6 /* TabBarController.swift */,
 				BB73B8A9294DE6A000472AA6 /* API */,
 				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
@@ -146,6 +169,7 @@
 			children = (
 				BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */,
 				BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */,
+				BB73B8C4295095B900472AA6 /* DatabaseService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -165,6 +189,20 @@
 				BB73B8B2294DF6C600472AA6 /* Entity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		BB73B8B7294F527300472AA6 /* TravelTime */ = {
+			isa = PBXGroup;
+			children = (
+				BB73B8B8294F52B700472AA6 /* TravelTimeViewController.swift */,
+				BB73B8BA294F591200472AA6 /* TravelTimePresenter.swift */,
+				BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */,
+				BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */,
+				BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */,
+				BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */,
+				BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */,
+			);
+			path = TravelTime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,23 +276,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */,
+				BB73B8BD294F598B00472AA6 /* TravelTimeInteractor.swift in Sources */,
 				BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */,
 				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
+				BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */,
+				BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */,
+				BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */,
 				BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */,
 				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
+				BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */,
+				BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */,
 				BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */,
 				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
 				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
+				BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
+				BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */,
 				BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */,
 				BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */,
 				BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */,
 				BB6C0A19294B54C900A3F662 /* HomePresenter.swift in Sources */,
+				BB73B8BF294F59D800472AA6 /* TravelTimeConfigurator.swift in Sources */,
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
+				BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +520,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB73B8C7295096DE00472AA6 /* Model.xcdatamodel */,
+			);
+			currentVersion = BB73B8C7295096DE00472AA6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BB6C09F6294B1CCF00A3F662 /* Project object */;
 }

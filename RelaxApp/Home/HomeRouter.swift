@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeRouterProtocol: AnyObject {
     var viewController: HomeViewController? { get set }
-    func presentChoiseAsteroid()
+    func presentChoiseAsteroid(for user: Credentials)
 }
 
 final class HomeRouter: HomeRouterProtocol {
@@ -26,8 +26,8 @@ final class HomeRouter: HomeRouterProtocol {
     
 //    MARK: - Helpers
     
-    func presentChoiseAsteroid() {
-        let vc = ChoiseAsteroidViewController()
+    func presentChoiseAsteroid(for user: Credentials) {
+        let vc = ChoiseAsteroidViewController(user: user)
         vc.modalPresentationStyle = .fullScreen
         viewController?.present(vc, animated: true)
     }
