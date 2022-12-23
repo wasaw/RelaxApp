@@ -104,8 +104,7 @@ final class HomeViewController: UIViewController {
     @objc private func handleSubmitButton() {
         guard let nickname = nicknameTextField.text else { return }
         guard let describe = descriptionTextField.text else { return }
-        let user = Credentials(nickname: nickname, describe: describe, start: nil)
-        presenter?.sendToFlight(user)
+        presenter?.sendToFlight(nickname: nickname, describe: describe)
     }
 }
 

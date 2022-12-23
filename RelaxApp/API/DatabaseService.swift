@@ -37,6 +37,7 @@ class DatabaseService {
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
         newRecord.setValue(user.nickname, forKey: "nickname")
         newRecord.setValue(user.describe, forKey: "describe")
+        newRecord.setValue(user.start, forKey: "start")
         
         do {
             try context.save()
@@ -79,13 +80,13 @@ class DatabaseService {
             for data in result {
                 let id = data.value(forKey: "id") as? String ?? ""
                 let name = data.value(forKey: "name") as? String ?? ""
-                let distance = data.value(forKey: "distance") as? String ?? ""
+                let distance = data.value(forKey: "distance") as? Double ?? 0
                 let speed = data.value(forKey: "speed") as? String ?? ""
                 guard let visitor = data.value(forKey: "visitor") as? NSManagedObject else { return nil }
-                
+
                 let nickname = visitor.value(forKey: "nickname") as? String ?? ""
                 let describe = visitor.value(forKey: "describe") as? String ?? ""
-                let start = visitor.value(forKey: "start") as? Date
+                let start = visitor.value(forKey: "start") as? Double ?? 0
                 let user = Credentials(nickname: nickname, describe: describe, start: start)
                 let asteroid = Asteroid(id: id, name: name, isPotentiallyHazardous: false, speed: speed, distance: distance, user: user)
                 asteroids.append(asteroid)

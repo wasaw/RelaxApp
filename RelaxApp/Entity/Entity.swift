@@ -37,12 +37,12 @@ struct Asteroid {
     let name: String
     let isPotentiallyHazardous: Bool
     let speed: String
-    let distance: String
+    let distance: Double
     var user: Credentials? = nil
 }
 
 struct Credentials {
     let nickname: String
     let describe: String
-    let start: Date?
+    let start: Double?
 }

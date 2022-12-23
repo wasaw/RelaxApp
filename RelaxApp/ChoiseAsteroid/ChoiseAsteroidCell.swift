@@ -61,6 +61,6 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
     
     func setInformation(_ asteroid: Asteroid) {
         titleLabel.text = asteroid.name
-        distanceLabel.text = asteroid.distance + " км"
+        distanceLabel.text = String(asteroid.distance) + " км"
     }
 }

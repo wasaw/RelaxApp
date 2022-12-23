@@ -35,6 +35,8 @@
 		BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C22950555B00472AA6 /* TabBarController.swift */; };
 		BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C4295095B900472AA6 /* DatabaseService.swift */; };
 		BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */; };
+		BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */; };
+		BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		BB73B8C22950555B00472AA6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BB73B8C4295095B900472AA6 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		BB73B8C7295096DE00472AA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeEntity.swift; sourceTree = "<group>"; };
+		BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 				BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */,
 				BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */,
 				BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */,
+				BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */,
+				BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */,
 			);
 			path = TravelTime;
 			sourceTree = "<group>";
@@ -287,7 +293,9 @@
 				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
+				BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
+				BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */,
 				BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */,
 				BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */,
 				BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */,
