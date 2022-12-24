@@ -25,8 +25,6 @@ final class ChoiseAsteroidRouter: ChoiseAsteroidRouterProtocol {
 //    MARK: - Helpers
     
     func presentTravelTime() {
-        let vc = TravelTimeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        viewController?.present(vc, animated: true)
+        viewController?.dismiss(animated: true)
     }
 }

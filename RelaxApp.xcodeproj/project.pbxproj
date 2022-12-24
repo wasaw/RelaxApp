@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */; };
+		BB69BF9B2957128B005AF5B7 /* FirstLauchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9A2957128B005AF5B7 /* FirstLauchPresenter.swift */; };
+		BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */; };
+		BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */; };
+		BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */; };
 		BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */; };
 		BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */; };
 		BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */; };
@@ -40,6 +45,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchViewController.swift; sourceTree = "<group>"; };
+		BB69BF9A2957128B005AF5B7 /* FirstLauchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchPresenter.swift; sourceTree = "<group>"; };
+		BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchInteractor.swift; sourceTree = "<group>"; };
+		BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchConfigurator.swift; sourceTree = "<group>"; };
+		BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchRouter.swift; sourceTree = "<group>"; };
 		BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +96,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB69BF9729570FDB005AF5B7 /* FirstLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */,
+				BB69BF9A2957128B005AF5B7 /* FirstLauchPresenter.swift */,
+				BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */,
+				BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */,
+				BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */,
+			);
+			path = FirstLaunch;
+			sourceTree = "<group>";
+		};
 		BB6C09F5294B1CCF00A3F662 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +128,7 @@
 		BB6C0A00294B1CCF00A3F662 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
+				BB69BF9729570FDB005AF5B7 /* FirstLaunch */,
 				BB6C0A24294B561700A3F662 /* App */,
 				BB73B8B1294DF6B700472AA6 /* Entity */,
 				BB73B8AE294DF09400472AA6 /* Helpers */,
@@ -280,6 +303,7 @@
 				BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */,
 				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
+				BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
 				BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */,
 				BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */,
@@ -292,9 +316,12 @@
 				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
 				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
+				BB69BF9B2957128B005AF5B7 /* FirstLauchPresenter.swift in Sources */,
+				BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
 				BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
+				BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */,
 				BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */,
 				BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */,
 				BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */,
@@ -303,6 +330,7 @@
 				BB73B8BF294F59D800472AA6 /* TravelTimeConfigurator.swift in Sources */,
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
 				BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */,
+				BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

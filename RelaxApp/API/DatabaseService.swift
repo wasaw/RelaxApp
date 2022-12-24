@@ -16,18 +16,18 @@ class DatabaseService {
     
 //    MARK: - Lifecycle
     
-    func isEmpty() -> Bool {
+    func isEmpty(completion: @escaping(Bool) -> Void) {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCredentials")
         do {
             let result = try context.fetch(fetchRequest)
             if result.isEmpty {
-                return true
+                completion(true)
             }
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        return false
+        completion(false)
     }
     
     func saveInformation(user: Credentials, asteroid: Asteroid) {
@@ -70,7 +70,7 @@ class DatabaseService {
         }
     }
     
-    func loadInformation() -> [Asteroid]? {
+    func loadInformation(completion: @escaping([Asteroid]?) -> Void)  {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
         
@@ -82,7 +82,7 @@ class DatabaseService {
                 let name = data.value(forKey: "name") as? String ?? ""
                 let distance = data.value(forKey: "distance") as? Double ?? 0
                 let speed = data.value(forKey: "speed") as? String ?? ""
-                guard let visitor = data.value(forKey: "visitor") as? NSManagedObject else { return nil }
+                guard let visitor = data.value(forKey: "visitor") as? NSManagedObject else { return }
 
                 let nickname = visitor.value(forKey: "nickname") as? String ?? ""
                 let describe = visitor.value(forKey: "describe") as? String ?? ""
@@ -91,11 +91,10 @@ class DatabaseService {
                 let asteroid = Asteroid(id: id, name: name, isPotentiallyHazardous: false, speed: speed, distance: distance, user: user)
                 asteroids.append(asteroid)
             }
-            
-            return asteroids
+            completion(asteroids)
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        return nil
+        completion(nil)
     }
 }

@@ -39,6 +39,8 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
     }
     
     func saveDepartureInformation(user: Credentials, asteroid: Asteroid) {
-        DatabaseService.shared.saveInformation(user: user, asteroid: asteroid)
+        DispatchQueue.main.async {
+            DatabaseService.shared.saveInformation(user: user, asteroid: asteroid)
+        }
     }
 }

@@ -58,7 +58,7 @@ final class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(handleSubmitButton), for: .touchUpInside)
         return button
     }()
-    
+        
 //    MARK: - Lifecycle
     
     override func viewDidLoad() {

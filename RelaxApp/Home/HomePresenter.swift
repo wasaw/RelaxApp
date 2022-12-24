@@ -13,7 +13,6 @@ protocol HomePresenterProtocol: AnyObject {
     func sendToFlight(nickname: String, describe: String)
     func isFirstLaunch()
     func launchView(isFirst: Bool)
-    func saveLocalInformation(user: Credentials)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -43,9 +42,5 @@ final class HomePresenter: HomePresenterProtocol {
     
     func launchView(isFirst: Bool) {
         view?.launchView(isFirst)
-    }
-    
-    func saveLocalInformation(user: Credentials) {
-        interactor?.saveLocalInformation(user)
     }
 }

@@ -5,6 +5,8 @@
 //  Created by Александр Меренков on 18.12.2022.
 //
 
+import Foundation
+
 protocol TravelTimeInteractorProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
     func loadLocalInformation()
@@ -25,8 +27,11 @@ final class TravelTimeInteractor: TravelTimeInteractorProtocol {
 //    MARK: - Helpers
     
     func loadLocalInformation() {
-        let answer = DatabaseService.shared.loadInformation()
-        guard let answer = answer else { return }
-        presenter?.presentLocalInformation(answer)
+        DispatchQueue.main.async {
+            DatabaseService.shared.loadInformation { answer in
+                guard let answer = answer else { return }
+                self.presenter?.presentLocalInformation(answer)
+            }
+        }
     }
 }
