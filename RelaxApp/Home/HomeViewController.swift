@@ -53,7 +53,7 @@ final class HomeViewController: UIViewController {
         button.setTitle("Отправить в полет", for: .normal)
         button.setTitleColor(.textColor, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 27)
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 10
         button.backgroundColor = .buttonBackground
         button.addTarget(self, action: #selector(handleSubmitButton), for: .touchUpInside)
         return button
@@ -72,11 +72,6 @@ final class HomeViewController: UIViewController {
 //    MARK: - Helpers
     
     func launchView(_ isFirst: Bool) {
-//        if isFirst {
-//
-//        } else {
-//            configureUI()
-//        }
         configureUI()
     }
     

@@ -7,6 +7,7 @@
 
 protocol FirstLauchRouterProtocol: AnyObject {
     var viewController: FirstLauchViewController? { get set }
+    func show()
 }
 
 final class FirstLauchRouter: FirstLauchRouterProtocol {
@@ -19,5 +20,13 @@ final class FirstLauchRouter: FirstLauchRouterProtocol {
     
     init(viewController: FirstLauchViewController? = nil) {
         self.viewController = viewController
+    }
+    
+//    MARK: - Helpers
+    
+    func show() {
+        let vc = TabBarController()
+        vc.modalPresentationStyle = .fullScreen
+        viewController?.present(vc, animated: true)
     }
 }

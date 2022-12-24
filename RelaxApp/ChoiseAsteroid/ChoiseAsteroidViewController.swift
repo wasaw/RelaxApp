@@ -21,7 +21,7 @@ final class ChoiseAsteroidViewController: UIViewController {
     private var collectionView: UICollectionView?
     private var asteroid: [Asteroid] = []
     private let user: Credentials
-    
+        
 //    MARK: - Lifecycle
     
     init(presenter: ChoiseAsteroidPresenterProtocol? = nil, collectionView: UICollectionView? = nil, user: Credentials) {
@@ -40,6 +40,7 @@ final class ChoiseAsteroidViewController: UIViewController {
         
         configurator.configure(with: self)
         configureUI()
+        configureGuesture()
         view.backgroundColor = .background
     }
     
@@ -55,6 +56,18 @@ final class ChoiseAsteroidViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .background
+    }
+    
+    private func configureGuesture() {
+        let right = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        right.direction = .right
+        view.addGestureRecognizer(right)
+    }
+    
+//    MARK: - Selectors
+    
+    @objc private func swipeRight(sender: UIPanGestureRecognizer) {
+        presenter?.swipeBack()
     }
 }
 

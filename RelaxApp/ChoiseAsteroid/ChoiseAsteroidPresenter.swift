@@ -11,6 +11,7 @@ protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     var router: ChoiseAsteroidRouterProtocol? { get set }
     func asteroidProcessing(asteroidInformation: AsteroidInformation, date: String)
     func setTravelTime(user: Credentials, asteroid: Asteroid)
+    func swipeBack()
 }
 
 final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
@@ -52,5 +53,9 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     func setTravelTime(user: Credentials, asteroid: Asteroid) {
         interactor?.saveDepartureInformation(user: user, asteroid: asteroid)
         router?.presentTravelTime()
+    }
+    
+    func swipeBack() {
+        router?.swipeBack()
     }
 }

@@ -9,6 +9,7 @@ protocol FirstLaunchPresenterProtocol: AnyObject {
     var view: FirstLauchViewProtocol? { get set }
     var interactor: FirstLauchInteractorProtocol? { get set }
     var router: FirstLauchRouterProtocol? { get set }
+    func show()
 }
 
 final class FirstLauchPresenter: FirstLaunchPresenterProtocol {
@@ -22,5 +23,11 @@ final class FirstLauchPresenter: FirstLaunchPresenterProtocol {
     
     init(view: FirstLauchViewProtocol? = nil) {
         self.view = view
+    }
+    
+//    MARK: - Helpers
+    
+    func show() {
+        router?.show()
     }
 }
