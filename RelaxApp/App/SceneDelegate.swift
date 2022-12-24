@@ -16,8 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = FirstLauchViewController()
-//        window?.rootViewController = TabBarController()
+        let isFirstLauch = UserDefaults.standard.bool(forKey: "isFirstLauch")
+//        if isFirstLauch {
+//            window?.rootViewController = FirstLauchViewController()
+//        } else {
+//            window?.rootViewController = TabBarController()
+//            UserDefaults.standard.set(true, forKey: "isFirstLauch")
+//        }
+        window?.rootViewController = TravelTimeViewController()
         window?.makeKeyAndVisible()
     }
 }

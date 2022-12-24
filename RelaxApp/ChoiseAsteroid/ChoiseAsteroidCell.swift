@@ -19,6 +19,7 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Josefin Sans", size: 19)
         label.textColor = .textColor
         return label
     }()

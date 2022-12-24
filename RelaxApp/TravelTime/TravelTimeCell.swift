@@ -12,6 +12,18 @@ final class TravelTimeCell: UICollectionViewCell {
     
 //    MARK: - Properties
     
+    private let nicknameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 19)
+        label.textColor = .textColor
+        return label
+    }()
+    private let anotationLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .textColor
+        return label
+    }()
     private let timeView: UIView = {
         let view = UIView()
         view.layer.borderWidth = 0.7
@@ -23,10 +35,22 @@ final class TravelTimeCell: UICollectionViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 32)
         return label
     }()
+    private let progressLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Уровень прогресса"
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .textColor
+        return label
+    }()
     private let progressView: UIProgressView = {
         let view = UIProgressView(progressViewStyle: .bar)
         view.tintColor = .green
         view.trackTintColor = .red
+        return view
+    }()
+    private let dividLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
         return view
     }()
     
@@ -45,19 +69,34 @@ final class TravelTimeCell: UICollectionViewCell {
 //    MARK: - Helpers
     
     private func configureUI() {
-        addSubview(timeView)
-        timeView.anchor(left: leftAnchor, top: topAnchor, right: rightAnchor, paddingLeft: 40, paddingTop: 10,  paddingRight: -40, height: 70)
-
+       
+        addSubview(nicknameLabel)
+        nicknameLabel.centerX(inView: self)
+        nicknameLabel.anchor(top: topAnchor)
         
+        addSubview(anotationLabel)
+        anotationLabel.anchor(left: leftAnchor, top: nicknameLabel.bottomAnchor, right: rightAnchor, paddingLeft: 40, paddingTop: 10, paddingRight: -40)
+        
+        addSubview(timeView)
+        timeView.anchor(left: leftAnchor, top: anotationLabel.bottomAnchor, right: rightAnchor, paddingLeft: 40, paddingTop: 10,  paddingRight: -40, height: 70)
+
         timeView.addSubview(timeLabel)
         timeLabel.centerX(inView: timeView)
         timeLabel.centerY(inView: timeView)
         
+        addSubview(progressLabel)
+        progressLabel.anchor(left: timeView.leftAnchor, top: timeView.bottomAnchor, right: timeView.rightAnchor, paddingTop: 10)
+        
         addSubview(progressView)
-        progressView.anchor(left: timeView.leftAnchor, top: timeView.bottomAnchor, right: timeView.rightAnchor, paddingTop: 15, height: 4)
+        progressView.anchor(left: timeView.leftAnchor, top: progressLabel.bottomAnchor, right: timeView.rightAnchor, paddingTop: 15, height: 4)
+        
+        addSubview(dividLine)
+        dividLine.anchor(left: leftAnchor, top: progressView.bottomAnchor, right: rightAnchor, paddingTop: 5, height: 0.7)
     }
     
-    func setInformation(_ travelTime: TravelTime) {
+    func setInformation(for user: Credentials, with travelTime: TravelTime) {
+        nicknameLabel.text = user.nickname
+        anotationLabel.text = "\(user.nickname) в пути уже:"
         progressView.setProgress(travelTime.progress, animated: true)
         timeLabel.text = travelTime.hour + ":" + travelTime.minute
     }

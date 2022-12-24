@@ -18,8 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
         } else {
             self.window = UIWindow()
-            let vc = TabBarController()
-            self.window?.rootViewController = vc
+            let isFirstLauch = UserDefaults.standard.bool(forKey: "isFirstLauch")
+            if isFirstLauch {
+                window?.rootViewController = FirstLauchViewController()
+            } else {
+                window?.rootViewController = TabBarController()
+                UserDefaults.standard.set(true, forKey: "isFirstLauch")
+            }
+//            self.window?.rootViewController = vc
             self.window?.makeKeyAndVisible()
         }
         return true

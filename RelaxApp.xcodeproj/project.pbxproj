@@ -12,6 +12,7 @@
 		BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */; };
 		BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */; };
 		BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */; };
+		BB69BFAE29575D11005AF5B7 /* JosefinSans-wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB69BFAD29575D11005AF5B7 /* JosefinSans-wght.ttf */; };
 		BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */; };
 		BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */; };
 		BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */; };
@@ -30,7 +31,7 @@
 		BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */; };
 		BB73B8AD294DE76F00472AA6 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */; };
 		BB73B8B0294DF0E200472AA6 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */; };
-		BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B2294DF6C600472AA6 /* Entity.swift */; };
+		BB73B8B3294DF6C600472AA6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B2294DF6C600472AA6 /* Model.swift */; };
 		BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */; };
 		BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8B8294F52B700472AA6 /* TravelTimeViewController.swift */; };
 		BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8BA294F591200472AA6 /* TravelTimePresenter.swift */; };
@@ -40,7 +41,7 @@
 		BB73B8C32950555B00472AA6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C22950555B00472AA6 /* TabBarController.swift */; };
 		BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C4295095B900472AA6 /* DatabaseService.swift */; };
 		BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */; };
-		BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */; };
+		BB73B91029549B3200472AA6 /* TravelTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B90F29549B3200472AA6 /* TravelTimeModel.swift */; };
 		BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchInteractor.swift; sourceTree = "<group>"; };
 		BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchConfigurator.swift; sourceTree = "<group>"; };
 		BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchRouter.swift; sourceTree = "<group>"; };
+		BB69BFAD29575D11005AF5B7 /* JosefinSans-wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-wght.ttf"; sourceTree = "<group>"; };
 		BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 		BB73B8AA294DE6BB00472AA6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BB73B8AC294DE76F00472AA6 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		BB73B8AF294DF0E200472AA6 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
-		BB73B8B2294DF6C600472AA6 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		BB73B8B2294DF6C600472AA6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BB73B8B4294DFE2300472AA6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidCell.swift; sourceTree = "<group>"; };
 		BB73B8B8294F52B700472AA6 /* TravelTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 		BB73B8C22950555B00472AA6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BB73B8C4295095B900472AA6 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		BB73B8C7295096DE00472AA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeEntity.swift; sourceTree = "<group>"; };
+		BB73B90F29549B3200472AA6 /* TravelTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeModel.swift; sourceTree = "<group>"; };
 		BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,14 @@
 			path = FirstLaunch;
 			sourceTree = "<group>";
 		};
+		BB69BFA229575309005AF5B7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BB69BFAD29575D11005AF5B7 /* JosefinSans-wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		BB6C09F5294B1CCF00A3F662 = {
 			isa = PBXGroup;
 			children = (
@@ -130,13 +140,14 @@
 			children = (
 				BB69BF9729570FDB005AF5B7 /* FirstLaunch */,
 				BB6C0A24294B561700A3F662 /* App */,
-				BB73B8B1294DF6B700472AA6 /* Entity */,
+				BB73B8B1294DF6B700472AA6 /* Model */,
 				BB73B8AE294DF09400472AA6 /* Helpers */,
 				BB6C0A15294B539600A3F662 /* Home */,
 				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
 				BB73B8B7294F527300472AA6 /* TravelTime */,
 				BB73B8C22950555B00472AA6 /* TabBarController.swift */,
 				BB73B8A9294DE6A000472AA6 /* API */,
+				BB69BFA229575309005AF5B7 /* Fonts */,
 				BB6C0A20294B55F900A3F662 /* Utils */,
 				BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */,
 				BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */,
@@ -206,12 +217,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		BB73B8B1294DF6B700472AA6 /* Entity */ = {
+		BB73B8B1294DF6B700472AA6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BB73B8B2294DF6C600472AA6 /* Entity.swift */,
+				BB73B8B2294DF6C600472AA6 /* Model.swift */,
 			);
-			path = Entity;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BB73B8B7294F527300472AA6 /* TravelTime */ = {
@@ -222,7 +233,7 @@
 				BB73B8BC294F598B00472AA6 /* TravelTimeInteractor.swift */,
 				BB73B8BE294F59D800472AA6 /* TravelTimeConfigurator.swift */,
 				BB73B8C0294F5A3D00472AA6 /* TravelTimeRouter.swift */,
-				BB73B90F29549B3200472AA6 /* TravelTimeEntity.swift */,
+				BB73B90F29549B3200472AA6 /* TravelTimeModel.swift */,
 				BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */,
 			);
 			path = TravelTime;
@@ -288,6 +299,7 @@
 			files = (
 				BB6C0A0E294B1CD400A3F662 /* LaunchScreen.storyboard in Resources */,
 				BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */,
+				BB69BFAE29575D11005AF5B7 /* JosefinSans-wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,14 +324,14 @@
 				BB73B8A6294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift in Sources */,
 				BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */,
 				BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */,
-				BB73B8B3294DF6C600472AA6 /* Entity.swift in Sources */,
+				BB73B8B3294DF6C600472AA6 /* Model.swift in Sources */,
 				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
 				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
 				BB69BF9B2957128B005AF5B7 /* FirstLauchPresenter.swift in Sources */,
 				BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
-				BB73B91029549B3200472AA6 /* TravelTimeEntity.swift in Sources */,
+				BB73B91029549B3200472AA6 /* TravelTimeModel.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
 				BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */,
 				BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */,
