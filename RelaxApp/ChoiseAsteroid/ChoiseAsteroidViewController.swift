@@ -24,6 +24,11 @@ final class ChoiseAsteroidViewController: UIViewController {
     private var asteroid: [Asteroid] = []
     private var days: [Days] = []
     private let user: Credentials
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        return spinner
+    }()
         
 //    MARK: - Lifecycle
     
@@ -52,6 +57,7 @@ final class ChoiseAsteroidViewController: UIViewController {
     private func configureUI() {
         configureDaysCollection()
         configureAsteroidsCollection()
+        configureSpinner()
 //        configureGuesture()
     }
     
@@ -82,6 +88,13 @@ final class ChoiseAsteroidViewController: UIViewController {
         collectionView.backgroundColor = .background
     }
     
+    private func configureSpinner() {
+        view.addSubview(spinner)
+        spinner.centerX(inView: view)
+        spinner.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 120)
+        spinner.startAnimating()
+    }
+    
     private func configureGuesture() {
         let right = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
         right.direction = .right
@@ -101,6 +114,8 @@ extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
     func setAsteroidInformation(asteroid: [Asteroid]) {
         self.asteroid = []
         self.asteroid = asteroid
+        spinner.stopAnimating()
+        asteroidsCollectionView?.isHidden = false
         asteroidsCollectionView?.reloadData()
     }
     
@@ -118,6 +133,8 @@ extension ChoiseAsteroidViewController: UICollectionViewDelegate {
             for i in 0..<days.count {
                 days[i].selected = i == indexPath.item ? true : false
             }
+            asteroidsCollectionView?.isHidden = true
+            spinner.startAnimating()
             daysCollectionView?.reloadData()
             presenter?.loadInformation(date: days[indexPath.item].fullDate)
         } else {
