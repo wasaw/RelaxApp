@@ -9,7 +9,8 @@ import UIKit
 
 protocol ChoiseAsteroidViewProtocol: AnyObject {
     var presenter: ChoiseAsteroidPresenterProtocol? { get set }
-    func getAsteroidInformation(asteroid: [Asteroid])
+    func setAsteroidInformation(asteroid: [Asteroid])
+    func setDate(_ days: [Days])
 }
 
 final class ChoiseAsteroidViewController: UIViewController {
@@ -18,15 +19,17 @@ final class ChoiseAsteroidViewController: UIViewController {
     var presenter: ChoiseAsteroidPresenterProtocol?
     let configurator: ChoiseAsteroidConfiguratorProtocol = ChoiseAsteroidConfigurator()
     
-    private var collectionView: UICollectionView?
+    private var daysCollectionView: UICollectionView?
+    private var asteroidsCollectionView: UICollectionView?
     private var asteroid: [Asteroid] = []
+    private var days: [Days] = []
     private let user: Credentials
         
 //    MARK: - Lifecycle
     
     init(presenter: ChoiseAsteroidPresenterProtocol? = nil, collectionView: UICollectionView? = nil, user: Credentials) {
         self.presenter = presenter
-        self.collectionView = collectionView
+        self.asteroidsCollectionView = collectionView
         self.user = user
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,19 +43,40 @@ final class ChoiseAsteroidViewController: UIViewController {
         
         configurator.configure(with: self)
         configureUI()
-        configureGuesture()
+        presenter?.getDate()
         view.backgroundColor = .background
     }
     
 //    MARK: - Helpers
     
     private func configureUI() {
-        let layout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        guard let collectionView = collectionView else { return }
-        collectionView.register(ChoiseAsteroidCell.self, forCellWithReuseIdentifier: ChoiseAsteroidCell.identifire)
+        configureDaysCollection()
+        configureAsteroidsCollection()
+//        configureGuesture()
+    }
+    
+    private func configureDaysCollection() {
+        let dayLayout = UICollectionViewFlowLayout()
+        dayLayout.scrollDirection = .horizontal
+        daysCollectionView = UICollectionView(frame: .zero, collectionViewLayout: dayLayout)
+        guard let collectionView = daysCollectionView else { return }
+        collectionView.register(ChoiseAsteroidDayCell.self, forCellWithReuseIdentifier: ChoiseAsteroidDayCell.identifire)
+        collectionView.showsHorizontalScrollIndicator = false
         view.addSubview(collectionView)
-        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor)
+        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingTop: 5, height: 80)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .background
+    }
+    
+    private func configureAsteroidsCollection() {
+        let asreoidLayout = UICollectionViewFlowLayout()
+        asteroidsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: asreoidLayout)
+        guard let collectionView = asteroidsCollectionView else { return }
+        collectionView.register(ChoiseAsteroidCell.self, forCellWithReuseIdentifier: ChoiseAsteroidCell.identifire)
+        collectionView.showsVerticalScrollIndicator = false
+        view.addSubview(collectionView)
+        collectionView.anchor(left: view.leftAnchor, top: daysCollectionView?.bottomAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingTop: 15)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .background
@@ -74,9 +98,15 @@ final class ChoiseAsteroidViewController: UIViewController {
 //  MARK: - ChoiseAsteroidViewProtocol
 
 extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
-    func getAsteroidInformation(asteroid: [Asteroid]) {
+    func setAsteroidInformation(asteroid: [Asteroid]) {
+        self.asteroid = []
         self.asteroid = asteroid
-        collectionView?.reloadData()
+        asteroidsCollectionView?.reloadData()
+    }
+    
+    func setDate(_ days: [Days]) {
+        self.days = days
+        daysCollectionView?.reloadData()
     }
 }
 
@@ -84,7 +114,15 @@ extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
 
 extension ChoiseAsteroidViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.setTravelTime(user: user, asteroid: asteroid[indexPath.item])
+        if collectionView == daysCollectionView {
+            for i in 0..<days.count {
+                days[i].selected = i == indexPath.item ? true : false
+            }
+            daysCollectionView?.reloadData()
+            presenter?.loadInformation(date: days[indexPath.item].fullDate)
+        } else {
+            presenter?.setTravelTime(user: user, asteroid: asteroid[indexPath.item])
+        }
     }
 }
 
@@ -92,10 +130,18 @@ extension ChoiseAsteroidViewController: UICollectionViewDelegate {
 
 extension ChoiseAsteroidViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == daysCollectionView {
+            return 5
+        }
         return asteroid.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == daysCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiseAsteroidDayCell.identifire, for: indexPath) as? ChoiseAsteroidDayCell else { return UICollectionViewCell() }
+            cell.setInformation(day: days[indexPath.row])
+            return cell
+        }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiseAsteroidCell.identifire, for: indexPath) as? ChoiseAsteroidCell else { return UICollectionViewCell() }
         if !asteroid.isEmpty {
             cell.setInformation(asteroid[indexPath.item])
@@ -108,6 +154,9 @@ extension ChoiseAsteroidViewController: UICollectionViewDataSource {
 
 extension ChoiseAsteroidViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == daysCollectionView {
+            return CGSize(width: 70, height: 80)
+        }
         return CGSize(width: 160, height: 180)
     }
     

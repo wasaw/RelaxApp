@@ -5,12 +5,17 @@
 //  Created by Александр Меренков on 16.12.2022.
 //
 
+import Foundation
+
 protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     var view: ChoiseAsteroidViewProtocol? { get set }
     var interactor: ChoiseAsteroidInteractorProtocol? { get set }
     var router: ChoiseAsteroidRouterProtocol? { get set }
     func asteroidProcessing(asteroidInformation: AsteroidInformation, date: String)
     func setTravelTime(user: Credentials, asteroid: Asteroid)
+    func getDate()
+    func setDate(_ days: [Days])
+    func loadInformation(date: String)
     func swipeBack()
 }
 
@@ -21,7 +26,7 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     weak var view: ChoiseAsteroidViewProtocol?
     var interactor: ChoiseAsteroidInteractorProtocol?
     var router: ChoiseAsteroidRouterProtocol?
-    
+        
     var asteroid: [Asteroid] = []
     
 //    MARK: - Lifecycle
@@ -35,6 +40,7 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
 //    MARK: - Helpers
     
     func asteroidProcessing(asteroidInformation: AsteroidInformation, date: String) {
+        asteroid = []
         let loadInformation = asteroidInformation.near_earth_objects[date]
         guard let count = loadInformation?.count else { return }
         for i in 0..<count {
@@ -47,7 +53,7 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
             let item = Asteroid(id: id, name: name, isPotentiallyHazardous: isPotentially, speed: speed, distance: distance)
             asteroid.append(item)
         }
-        view?.getAsteroidInformation(asteroid: asteroid)
+        view?.setAsteroidInformation(asteroid: asteroid)
     }
     
     func setTravelTime(user: Credentials, asteroid: Asteroid) {
@@ -57,5 +63,17 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     
     func swipeBack() {
         router?.swipeBack()
+    }
+    
+    func getDate() {
+        interactor?.getDate()
+    }
+    
+    func setDate(_ days: [Days]) {
+        view?.setDate(days)
+    }
+    
+    func loadInformation(date: String) {
+        interactor?.loadInformation(date: date)
     }
 }

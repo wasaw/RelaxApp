@@ -13,6 +13,8 @@
 		BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */; };
 		BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */; };
 		BB69BFAE29575D11005AF5B7 /* JosefinSans-wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB69BFAD29575D11005AF5B7 /* JosefinSans-wght.ttf */; };
+		BB69BFB229585196005AF5B7 /* ChoiseAsteroidDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BFB129585196005AF5B7 /* ChoiseAsteroidDayCell.swift */; };
+		BB69BFB429598949005AF5B7 /* ChoiseAsteroidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BFB329598949005AF5B7 /* ChoiseAsteroidModel.swift */; };
 		BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */; };
 		BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */; };
 		BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6C0A0A294B1CD400A3F662 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		BB69BF9E2957137B005AF5B7 /* FirstLauchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchConfigurator.swift; sourceTree = "<group>"; };
 		BB69BFA0295713BD005AF5B7 /* FirstLauchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchRouter.swift; sourceTree = "<group>"; };
 		BB69BFAD29575D11005AF5B7 /* JosefinSans-wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-wght.ttf"; sourceTree = "<group>"; };
+		BB69BFB129585196005AF5B7 /* ChoiseAsteroidDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidDayCell.swift; sourceTree = "<group>"; };
+		BB69BFB329598949005AF5B7 /* ChoiseAsteroidModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidModel.swift; sourceTree = "<group>"; };
 		BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelaxApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB6C0A03294B1CCF00A3F662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				BB73B8A5294CA5FE00472AA6 /* ChoiseAsteroidConfigurator.swift */,
 				BB73B8A7294CA7F300472AA6 /* ChoiseAsteroidRouter.swift */,
 				BB73B8B5294E073F00472AA6 /* ChoiseAsteroidCell.swift */,
+				BB69BFB129585196005AF5B7 /* ChoiseAsteroidDayCell.swift */,
+				BB69BFB329598949005AF5B7 /* ChoiseAsteroidModel.swift */,
 			);
 			path = ChoiseAsteroid;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
 				BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */,
+				BB69BFB429598949005AF5B7 /* ChoiseAsteroidModel.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
 				BB73B8C5295095B900472AA6 /* DatabaseService.swift in Sources */,
 				BB73B8BB294F591200472AA6 /* TravelTimePresenter.swift in Sources */,
@@ -331,6 +338,7 @@
 				BB69BF9B2957128B005AF5B7 /* FirstLauchPresenter.swift in Sources */,
 				BB69BFA1295713BD005AF5B7 /* FirstLauchRouter.swift in Sources */,
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
+				BB69BFB229585196005AF5B7 /* ChoiseAsteroidDayCell.swift in Sources */,
 				BB73B91029549B3200472AA6 /* TravelTimeModel.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
 				BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */,

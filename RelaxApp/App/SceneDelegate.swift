@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.rootViewController = TabBarController()
 //            UserDefaults.standard.set(true, forKey: "isFirstLauch")
 //        }
-        window?.rootViewController = TravelTimeViewController()
+        window?.rootViewController = HomeViewController()
         window?.makeKeyAndVisible()
     }
 }
