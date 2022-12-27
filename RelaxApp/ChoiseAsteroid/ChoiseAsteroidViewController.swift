@@ -24,10 +24,17 @@ final class ChoiseAsteroidViewController: UIViewController {
     private var asteroid: [Asteroid] = []
     private var days: [Days] = []
     private let user: Credentials
+    private var directSort = true
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .whiteLarge)
         return spinner
+    }()
+    private let sortImage = UIImage(named: "swap")
+    private let sortButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.addTarget(self, action: #selector(handleSortButton), for: .touchUpInside)
+        return btn
     }()
         
 //    MARK: - Lifecycle
@@ -56,6 +63,7 @@ final class ChoiseAsteroidViewController: UIViewController {
     
     private func configureUI() {
         configureDaysCollection()
+        configureSortView()
         configureAsteroidsCollection()
         configureSpinner()
 //        configureGuesture()
@@ -75,6 +83,12 @@ final class ChoiseAsteroidViewController: UIViewController {
         collectionView.backgroundColor = .background
     }
     
+    private func configureSortView() {
+        view.addSubview(sortButton)
+        sortButton.anchor(top: daysCollectionView?.bottomAnchor, right: view.rightAnchor, paddingTop: 5, paddingRight: -15, width: 35, height: 25)
+        sortButton.setImage(sortImage, for: .normal)
+    }
+    
     private func configureAsteroidsCollection() {
         let asreoidLayout = UICollectionViewFlowLayout()
         asteroidsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: asreoidLayout)
@@ -82,7 +96,7 @@ final class ChoiseAsteroidViewController: UIViewController {
         collectionView.register(ChoiseAsteroidCell.self, forCellWithReuseIdentifier: ChoiseAsteroidCell.identifire)
         collectionView.showsVerticalScrollIndicator = false
         view.addSubview(collectionView)
-        collectionView.anchor(left: view.leftAnchor, top: daysCollectionView?.bottomAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingTop: 15)
+        collectionView.anchor(left: view.leftAnchor, top: sortButton.bottomAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingTop: 5)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .background
@@ -105,6 +119,11 @@ final class ChoiseAsteroidViewController: UIViewController {
     
     @objc private func swipeRight(sender: UIPanGestureRecognizer) {
         presenter?.swipeBack()
+    }
+    
+    @objc private func handleSortButton() {
+        presenter?.sort(asteroid, direct: directSort)
+        directSort = !directSort
     }
 }
 
@@ -174,7 +193,8 @@ extension ChoiseAsteroidViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == daysCollectionView {
             return CGSize(width: 70, height: 80)
         }
-        return CGSize(width: 160, height: 180)
+        let width: CGFloat = view.bounds.width / 2 - 20
+        return CGSize(width: width, height: 280)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

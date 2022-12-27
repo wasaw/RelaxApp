@@ -16,6 +16,7 @@ protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     func getDate()
     func setDate(_ days: [Days])
     func loadInformation(date: String)
+    func sort(_ asteroids: [Asteroid], direct: Bool)
     func swipeBack()
 }
 
@@ -75,5 +76,15 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     
     func loadInformation(date: String) {
         interactor?.loadInformation(date: date)
+    }
+    
+    func sort(_ asteroids: [Asteroid], direct: Bool) {
+        let result = asteroids.sorted { lhs, rhs in
+            if direct {
+                return lhs.distance < rhs.distance
+            }
+            return lhs.distance > rhs.distance
+        }
+        view?.setAsteroidInformation(asteroid: result)
     }
 }

@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let isFirstLauch = UserDefaults.standard.bool(forKey: "isFirstLauch")
-//        if isFirstLauch {
-//            window?.rootViewController = FirstLauchViewController()
-//        } else {
-//            window?.rootViewController = TabBarController()
-//            UserDefaults.standard.set(true, forKey: "isFirstLauch")
-//        }
-        window?.rootViewController = HomeViewController()
+        if isFirstLauch {
+            window?.rootViewController = FirstLauchViewController()
+        } else {
+            window?.rootViewController = TabBarController()
+            UserDefaults.standard.set(true, forKey: "isFirstLauch")
+        }
+//        window?.rootViewController = HomeViewController()
         window?.makeKeyAndVisible()
     }
 }
