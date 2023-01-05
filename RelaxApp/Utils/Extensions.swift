@@ -20,6 +20,8 @@ extension UIColor {
     static let asteroidCellFirst = UIColor(displayP3Red: 228/255, green: 154/255, blue: 143/255, alpha: 1)
     static let asteroidCellSecond = UIColor(displayP3Red: 203/255, green: 205/255, blue: 148/255, alpha: 1)
     static let asteroidCellThird = UIColor(displayP3Red: 95/255, green: 77/255, blue: 137/255, alpha: 1)
+    
+    static let travelCellBackground = UIColor(displayP3Red: 53/255, green: 56/255, blue: 101/255, alpha: 1)
 }
 
 //  MARK: - UIView

@@ -90,8 +90,8 @@ final class ChoiseAsteroidViewController: UIViewController {
     }
     
     private func configureAsteroidsCollection() {
-        let asreoidLayout = UICollectionViewFlowLayout()
-        asteroidsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: asreoidLayout)
+        let asteroidLayout = UICollectionViewFlowLayout()
+        asteroidsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: asteroidLayout)
         guard let collectionView = asteroidsCollectionView else { return }
         collectionView.register(ChoiseAsteroidCell.self, forCellWithReuseIdentifier: ChoiseAsteroidCell.identifire)
         collectionView.showsVerticalScrollIndicator = false

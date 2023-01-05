@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func launchView(_ isFirst: Bool)
+    func setAlert()
 }
 
 final class HomeViewController: UIViewController {
@@ -73,6 +74,12 @@ final class HomeViewController: UIViewController {
     
     func launchView(_ isFirst: Bool) {
         configureUI()
+    }
+    
+    func setAlert() {
+        let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, запилните все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        present(alert, animated: true)
     }
     
     private func configureUI() {

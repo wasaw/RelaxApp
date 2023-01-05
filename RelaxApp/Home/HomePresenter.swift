@@ -31,9 +31,13 @@ final class HomePresenter: HomePresenterProtocol {
 //    MARK: - Helpers
     
     func sendToFlight(nickname: String, describe: String) {
-        let currentDate = Date().timeIntervalSince1970
-        let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
-        router?.presentChoiseAsteroid(for: user)
+        if (nickname.isEmpty || describe.isEmpty) {
+            view?.setAlert()
+        } else {
+            let currentDate = Date().timeIntervalSince1970
+            let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
+            router?.presentChoiseAsteroid(for: user)
+        }
     }
     
     func isFirstLaunch() {
