@@ -15,7 +15,7 @@ protocol TravelTimeInteractorProtocol: AnyObject {
 final class TravelTimeInteractor: TravelTimeInteractorProtocol {
     
 //    MARK: - Properties
-    var presenter: TravelTimePresenterProtocol?
+    weak var presenter: TravelTimePresenterProtocol?
     
 //    MARK: - Lifecycle
     

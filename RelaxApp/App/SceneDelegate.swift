@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.rootViewController = FirstLauchViewController()
 //            UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
 //        }
-        window?.rootViewController = TravelTimeViewController()
+        window?.rootViewController = CompletedViewController()
         window?.makeKeyAndVisible()
     }
 }
