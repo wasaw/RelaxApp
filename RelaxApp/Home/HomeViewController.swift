@@ -10,6 +10,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func launchView(_ isFirst: Bool)
+    func setAlert()
 }
 
 final class HomeViewController: UIViewController {
@@ -53,12 +54,12 @@ final class HomeViewController: UIViewController {
         button.setTitle("Отправить в полет", for: .normal)
         button.setTitleColor(.textColor, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 27)
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 10
         button.backgroundColor = .buttonBackground
         button.addTarget(self, action: #selector(handleSubmitButton), for: .touchUpInside)
         return button
     }()
-    
+        
 //    MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -72,12 +73,13 @@ final class HomeViewController: UIViewController {
 //    MARK: - Helpers
     
     func launchView(_ isFirst: Bool) {
-//        if isFirst {
-//
-//        } else {
-//            configureUI()
-//        }
         configureUI()
+    }
+    
+    func setAlert() {
+        let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, запилните все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        present(alert, animated: true)
     }
     
     private func configureUI() {

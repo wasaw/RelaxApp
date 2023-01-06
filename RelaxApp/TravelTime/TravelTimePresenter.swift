@@ -50,6 +50,10 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
             guard let start = item.user?.start else { return [] }
             let timeInTravel = (currentDate.timeIntervalSince1970 - start) / dayInSeconds
             let progress = Float(timeInTravel / timeDistance)
+            let progressString = progress > 1 ? "100" : String(format: "%.0f", progress * 100)
+            
+            let distance = (currentDate.timeIntervalSince1970 - start) * spaceSpeed
+            let distanceString = String(format: "%.0f", distance)
 
             let timeLabelValueMinute = (Int(currentDate.timeIntervalSince1970 - start) % hourInSeconds) / minuteIntSeconds
             let timeLabelValueHour = (currentDate.timeIntervalSince1970 - start) / Double(hourInSeconds)
@@ -63,7 +67,7 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
                 hourString = "0" + hourString
             }
             
-            let travel = TravelTime(progress: progress, hour: hourString, minute: minuteString)
+            let travel = TravelTime(progress: progress, hour: hourString, minute: minuteString, distance: distanceString, progressString: progressString)
             travelTime.append(travel)
         }
         return travelTime

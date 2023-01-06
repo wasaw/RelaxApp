@@ -13,7 +13,6 @@ protocol HomePresenterProtocol: AnyObject {
     func sendToFlight(nickname: String, describe: String)
     func isFirstLaunch()
     func launchView(isFirst: Bool)
-    func saveLocalInformation(user: Credentials)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -32,9 +31,13 @@ final class HomePresenter: HomePresenterProtocol {
 //    MARK: - Helpers
     
     func sendToFlight(nickname: String, describe: String) {
-        let currentDate = Date().timeIntervalSince1970
-        let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
-        router?.presentChoiseAsteroid(for: user)
+        if (nickname.isEmpty || describe.isEmpty) {
+            view?.setAlert()
+        } else {
+            let currentDate = Date().timeIntervalSince1970
+            let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
+            router?.presentChoiseAsteroid(for: user)
+        }
     }
     
     func isFirstLaunch() {
@@ -43,9 +46,5 @@ final class HomePresenter: HomePresenterProtocol {
     
     func launchView(isFirst: Bool) {
         view?.launchView(isFirst)
-    }
-    
-    func saveLocalInformation(user: Credentials) {
-        interactor?.saveLocalInformation(user)
     }
 }

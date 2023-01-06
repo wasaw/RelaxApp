@@ -19,22 +19,23 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Josefin Sans", size: 19)
         label.textColor = .textColor
         return label
     }()
     private let distanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .textColor
+        label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
-    
+        
 //    MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configureUI()
-        backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
@@ -44,23 +45,35 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
 //    MARK: - Helpers
     
     private func configureUI() {
-        addSubview(asteroidImageView)
-        asteroidImageView.anchor(left: leftAnchor, top: topAnchor, right: rightAnchor, height: 110)
-        
         addSubview(titleLabel)
         titleLabel.centerX(inView: self)
-        titleLabel.anchor(top: asteroidImageView.bottomAnchor, paddingTop: 15)
+        titleLabel.anchor(top: topAnchor, paddingTop: 5)
+        
+        addSubview(asteroidImageView)
+        asteroidImageView.anchor(top: titleLabel.bottomAnchor, paddingTop: 15, width: 60, height: 60)
         
         addSubview(distanceLabel)
         distanceLabel.centerX(inView: self)
-        distanceLabel.anchor(top: titleLabel.bottomAnchor, paddingTop: 10)
+        distanceLabel.anchor(top: asteroidImageView.bottomAnchor, paddingTop: 25)
         
         layer.cornerRadius = 15
         layer.borderWidth = 0.7
+        layer.borderColor = UIColor.white.cgColor
+    }
+    
+    private func setBackgroud(_ distanse: Double) -> UIColor {
+        if distanse > 55000000 {
+            return UIColor.asteroidCellThird
+        }
+        if distanse > 15000000 {
+            return UIColor.asteroidCellSecond
+        }
+        return UIColor.asteroidCellFirst
     }
     
     func setInformation(_ asteroid: Asteroid) {
         titleLabel.text = asteroid.name
-        distanceLabel.text = String(asteroid.distance) + " км"
+        distanceLabel.text = String(format: "%.0f", asteroid.distance) + " км"
+        backgroundColor = setBackgroud(asteroid.distance)
     }
 }

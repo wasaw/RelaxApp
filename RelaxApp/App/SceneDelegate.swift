@@ -16,8 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-//        window?.rootViewController = TravelTimeViewController()
-        window?.rootViewController = TabBarController()
+        let isLaunchedBefore = UserDefaults.standard.bool(forKey: "isLaunchedBefore")
+//        if isLaunchedBefore {
+//            window?.rootViewController = TabBarController()
+//        } else {
+//            window?.rootViewController = FirstLauchViewController()
+//            UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
+//        }
+        window?.rootViewController = TravelTimeViewController()
         window?.makeKeyAndVisible()
     }
 }
