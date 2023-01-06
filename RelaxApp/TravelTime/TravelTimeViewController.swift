@@ -18,7 +18,7 @@ final class TravelTimeViewController: UIViewController {
     var presenter: TravelTimePresenterProtocol?
     let configurator: TravelTimeConfiguratorProtocol = TravelTimeConfigurator()
     
-    private var asteroids: [Asteroid] = []
+    private var users: [Credentials] = []
     private var travelTime: [TravelTime] = []
     private var collectionView: UICollectionView?
     
@@ -52,7 +52,10 @@ final class TravelTimeViewController: UIViewController {
 
 extension TravelTimeViewController: TravelTimeViewProtocol {
     func presentLocalInformation(asteroids: [Asteroid], travelTime: [TravelTime]) {
-        self.asteroids = asteroids
+        for item in asteroids {
+            guard let user = item.user else { return }
+            users.append(user)
+        }
         self.travelTime = travelTime
         collectionView?.reloadData()
     }
@@ -62,7 +65,7 @@ extension TravelTimeViewController: TravelTimeViewProtocol {
 
 extension TravelTimeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        return CGSize(width: view.frame.width, height: 220)
     }
 }
 
@@ -70,12 +73,12 @@ extension TravelTimeViewController: UICollectionViewDelegate {
 
 extension TravelTimeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return asteroids.count
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TravelTimeCell.identifire, for: indexPath) as? TravelTimeCell else { return UICollectionViewCell() }
-        cell.setInformation(travelTime[indexPath.row])
+        cell.setInformation(for: users[indexPath.row], with: travelTime[indexPath.row])
         return cell
     }
 }

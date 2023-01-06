@@ -5,10 +5,11 @@
 //  Created by Александр Меренков on 15.12.2022.
 //
 
+import Foundation
+
 protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func isFirstLaunch()
-    func saveLocalInformation(_ user: Credentials)
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
@@ -25,11 +26,10 @@ final class HomeInteractor: HomeInteractorProtocol {
 //    MARK: - Helpers
     
     func isFirstLaunch() {
-        let answer = DatabaseService.shared.isEmpty()
-        presenter?.launchView(isFirst: answer)
-    }
-    
-    func saveLocalInformation(_ user: Credentials) {
-        
+        DispatchQueue.main.async {
+            DatabaseService.shared.isEmpty { answer in
+                self.presenter?.launchView(isFirst: answer)
+            }
+        }
     }
 }

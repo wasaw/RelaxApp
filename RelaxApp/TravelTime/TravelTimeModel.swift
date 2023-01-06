@@ -9,4 +9,6 @@ struct TravelTime {
     let progress: Float
     let hour: String
     let minute: String
+    let distance: String
+    let progressString: String
 }

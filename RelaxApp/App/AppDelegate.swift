@@ -18,8 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
         } else {
             self.window = UIWindow()
-            let vc = TabBarController()
-            self.window?.rootViewController = vc
+            let isLaunchedBefore = UserDefaults.standard.bool(forKey: "isLaunchedBefore")
+            if isLaunchedBefore {
+                window?.rootViewController = TabBarController()
+            } else {
+                window?.rootViewController = FirstLauchViewController()
+                UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
+            }
+//            self.window?.rootViewController = vc
             self.window?.makeKeyAndVisible()
         }
         return true
