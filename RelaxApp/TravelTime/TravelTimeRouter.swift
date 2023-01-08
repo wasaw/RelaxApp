@@ -6,18 +6,18 @@
 //
 
 protocol TravelTimeRouterProtocol: AnyObject {
-    var viewController: TravelTimeViewProtocol? { get set }
+    var viewController: TravelTimeViewController? { get set }
 }
 
 final class TravelTimeRouter: TravelTimeRouterProtocol {
     
 //    MARK: - Properties
     
-    weak var viewController: TravelTimeViewProtocol?
+    weak var viewController: TravelTimeViewController?
     
 //    MARK: - Lifecycle
     
-    init(viewController: TravelTimeViewProtocol? = nil) {
+    init(viewController: TravelTimeViewController? = nil) {
         self.viewController = viewController
     }
 }

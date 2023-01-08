@@ -70,6 +70,35 @@ class DatabaseService {
         }
     }
     
+    func saveCompleted(id: String, name: String, nickname: String) {
+        let context = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "Completed", in: context) else { return }
+        
+        let newRecord = NSManagedObject(entity: entity, insertInto: context)
+        newRecord.setValue(name, forKey: "name")
+        newRecord.setValue(nickname, forKey: "nickname")
+        
+        let fetchRequestAsteroid = NSFetchRequest<NSFetchRequestResult>(entityName: "AsteroidData")
+        fetchRequestAsteroid.predicate = NSPredicate(format: "id == %@", id)
+        
+        let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCredentials")
+        fetchRequestUser.predicate = NSPredicate(format: "nickname == %@", nickname)
+        
+        do {
+            let resultAsteroid = try context.fetch(fetchRequestAsteroid)
+            guard let asteroid = resultAsteroid.first as? NSManagedObject else { return }
+            
+            let resultUser = try context.fetch(fetchRequestUser)
+            guard let user = resultUser.first as? NSManagedObject else { return }
+            
+            newRecord.setValue(asteroid, forKey: "asteroid")
+            newRecord.setValue(user, forKey: "user")
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     func loadInformation(completion: @escaping([Asteroid]?) -> Void)  {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
@@ -96,5 +125,39 @@ class DatabaseService {
             print(error.localizedDescription)
         }
         completion(nil)
+    }
+    
+    func loadCompleted(completion: @escaping([Delivered]) -> Void) {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Completed")
+
+        do {
+            let result = try context.fetch(fetchRequest)
+            var answer: [Delivered] = []
+            for data in result {
+                let name = data.value(forKey: "name") as? String ?? ""
+                let nickname = data.value(forKey: "nickname") as? String ?? ""
+                let item = Delivered(name: name, nickname: nickname)
+                answer.append(item)
+            }
+            completion(answer)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func delete(nickname: String) {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Completed")
+        fetchRequest.predicate = NSPredicate(format: "nickname == %@", nickname)
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            guard let item = result.first as? NSManagedObject else { return }
+            context.delete(item)
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }

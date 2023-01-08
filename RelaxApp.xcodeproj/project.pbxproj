@@ -25,6 +25,13 @@
 		BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */; };
 		BB6C0A1F294B557300A3F662 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A1E294B557300A3F662 /* HomeRouter.swift */; };
 		BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6C0A21294B560D00A3F662 /* Extensions.swift */; };
+		BB6D6C9E2968A59A001B661D /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6C9D2968A59A001B661D /* CompletedViewController.swift */; };
+		BB6D6CA02968A61D001B661D /* CompletedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6C9F2968A61D001B661D /* CompletedPresenter.swift */; };
+		BB6D6CA22968A6E7001B661D /* CompletedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA12968A6E7001B661D /* CompletedInteractor.swift */; };
+		BB6D6CA42968A8DB001B661D /* CompletedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */; };
+		BB6D6CA62968A94B001B661D /* CompletedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA52968A94B001B661D /* CompletedRouter.swift */; };
+		BB6D6CA82968AF35001B661D /* CompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA72968AF35001B661D /* CompletedCell.swift */; };
+		BB6D6CAA296AD566001B661D /* CompletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA9296AD566001B661D /* CompletedModel.swift */; };
 		BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */; };
 		BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */; };
 		BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */; };
@@ -68,6 +75,13 @@
 		BB6C0A1C294B553600A3F662 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		BB6C0A1E294B557300A3F662 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		BB6C0A21294B560D00A3F662 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BB6D6C9D2968A59A001B661D /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		BB6D6C9F2968A61D001B661D /* CompletedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedPresenter.swift; sourceTree = "<group>"; };
+		BB6D6CA12968A6E7001B661D /* CompletedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedInteractor.swift; sourceTree = "<group>"; };
+		BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedConfigurator.swift; sourceTree = "<group>"; };
+		BB6D6CA52968A94B001B661D /* CompletedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRouter.swift; sourceTree = "<group>"; };
+		BB6D6CA72968AF35001B661D /* CompletedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedCell.swift; sourceTree = "<group>"; };
+		BB6D6CA9296AD566001B661D /* CompletedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedModel.swift; sourceTree = "<group>"; };
 		BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidViewController.swift; sourceTree = "<group>"; };
 		BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidPresenter.swift; sourceTree = "<group>"; };
 		BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidInteractor.swift; sourceTree = "<group>"; };
@@ -149,6 +163,7 @@
 				BB6C0A15294B539600A3F662 /* Home */,
 				BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */,
 				BB73B8B7294F527300472AA6 /* TravelTime */,
+				BB6D6C9C2968A559001B661D /* Completed */,
 				BB73B8C22950555B00472AA6 /* TabBarController.swift */,
 				BB73B8A9294DE6A000472AA6 /* API */,
 				BB69BFA229575309005AF5B7 /* Fonts */,
@@ -187,6 +202,20 @@
 				BB6C0A01294B1CCF00A3F662 /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		BB6D6C9C2968A559001B661D /* Completed */ = {
+			isa = PBXGroup;
+			children = (
+				BB6D6C9D2968A59A001B661D /* CompletedViewController.swift */,
+				BB6D6C9F2968A61D001B661D /* CompletedPresenter.swift */,
+				BB6D6CA12968A6E7001B661D /* CompletedInteractor.swift */,
+				BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */,
+				BB6D6CA52968A94B001B661D /* CompletedRouter.swift */,
+				BB6D6CA9296AD566001B661D /* CompletedModel.swift */,
+				BB6D6CA72968AF35001B661D /* CompletedCell.swift */,
+			);
+			path = Completed;
 			sourceTree = "<group>";
 		};
 		BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */ = {
@@ -317,10 +346,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6C0A22294B560D00A3F662 /* Extensions.swift in Sources */,
+				BB6D6CA42968A8DB001B661D /* CompletedConfigurator.swift in Sources */,
 				BB73B8BD294F598B00472AA6 /* TravelTimeInteractor.swift in Sources */,
 				BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */,
 				BB73B8A8294CA7F300472AA6 /* ChoiseAsteroidRouter.swift in Sources */,
 				BB6C0A02294B1CCF00A3F662 /* AppDelegate.swift in Sources */,
+				BB6D6CA62968A94B001B661D /* CompletedRouter.swift in Sources */,
 				BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */,
 				BB69BFB429598949005AF5B7 /* ChoiseAsteroidModel.swift in Sources */,
 				BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */,
@@ -332,6 +363,7 @@
 				BB73B8C8295096DE00472AA6 /* Model.xcdatamodeld in Sources */,
 				BB73B8C1294F5A3D00472AA6 /* TravelTimeRouter.swift in Sources */,
 				BB73B8B3294DF6C600472AA6 /* Model.swift in Sources */,
+				BB6D6CA22968A6E7001B661D /* CompletedInteractor.swift in Sources */,
 				BB73B8AB294DE6BB00472AA6 /* NetworkService.swift in Sources */,
 				BB73B8B6294E073F00472AA6 /* ChoiseAsteroidCell.swift in Sources */,
 				BB6C0A04294B1CCF00A3F662 /* SceneDelegate.swift in Sources */,
@@ -340,6 +372,7 @@
 				BB6C0A1B294B54F500A3F662 /* HomeInteractor.swift in Sources */,
 				BB69BFB229585196005AF5B7 /* ChoiseAsteroidDayCell.swift in Sources */,
 				BB73B91029549B3200472AA6 /* TravelTimeModel.swift in Sources */,
+				BB6D6C9E2968A59A001B661D /* CompletedViewController.swift in Sources */,
 				BB6C0A1D294B553600A3F662 /* HomeConfigurator.swift in Sources */,
 				BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */,
 				BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */,
@@ -350,7 +383,10 @@
 				BB73B8BF294F59D800472AA6 /* TravelTimeConfigurator.swift in Sources */,
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
 				BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */,
+				BB6D6CA02968A61D001B661D /* CompletedPresenter.swift in Sources */,
+				BB6D6CAA296AD566001B661D /* CompletedModel.swift in Sources */,
 				BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */,
+				BB6D6CA82968AF35001B661D /* CompletedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
