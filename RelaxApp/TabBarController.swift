@@ -41,7 +41,12 @@ class TabBarController: UITabBarController {
         travelVC.tabBarItem.image = UIImage(named: "track")?.withRenderingMode(.alwaysOriginal)
         travelVC.tabBarItem.title = "Отслеживание"
         travelVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
+        
+        let completedVC = CompletedViewController()
+        completedVC.tabBarItem.image = UIImage(named: "checkmark")?.withRenderingMode(.alwaysOriginal)
+        completedVC.tabBarItem.title = "Завершенные"
+        completedVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
 
-        viewControllers = [homeVC, travelVC]
+        viewControllers = [homeVC, travelVC, completedVC]
     }
 }

@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let isLaunchedBefore = UserDefaults.standard.bool(forKey: "isLaunchedBefore")
-//        if isLaunchedBefore {
-//            window?.rootViewController = TabBarController()
-//        } else {
-//            window?.rootViewController = FirstLauchViewController()
-//            UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
-//        }
-        window?.rootViewController = CompletedViewController()
+        if isLaunchedBefore {
+            window?.rootViewController = TabBarController()
+        } else {
+            window?.rootViewController = FirstLauchViewController()
+            UserDefaults.standard.set(true, forKey: "isLaunchedBefore")
+        }
+//        window?.rootViewController = CompletedViewController()
         window?.makeKeyAndVisible()
     }
 }

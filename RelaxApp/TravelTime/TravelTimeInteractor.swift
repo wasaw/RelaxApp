@@ -10,6 +10,7 @@ import Foundation
 protocol TravelTimeInteractorProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
     func loadLocalInformation()
+    func completed(id: String, name: String, nickname: String)
 }
 
 final class TravelTimeInteractor: TravelTimeInteractorProtocol {
@@ -32,6 +33,12 @@ final class TravelTimeInteractor: TravelTimeInteractorProtocol {
                 guard let answer = answer else { return }
                 self.presenter?.presentLocalInformation(answer)
             }
+        }
+    }
+    
+    func completed(id: String, name: String, nickname: String) {
+        DispatchQueue.main.async {
+            DatabaseService.shared.saveCompleted(id: id, name: name, nickname: nickname)
         }
     }
 }

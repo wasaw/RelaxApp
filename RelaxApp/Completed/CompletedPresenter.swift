@@ -9,6 +9,9 @@ protocol CompletedPresenterProtocol: AnyObject {
     var view: CompletedViewProtocol? { get set }
     var interactor: CompletedInteractorProtocol? { get set }
     var router: CompletedRouterProtocol? { get set }
+    func checkInformation()
+    func setInformation(_ answer: [Delivered])
+    func deleteSelectedItem(nickname: String)
 }
 
 final class CompletedPresenter: CompletedPresenterProtocol {
@@ -24,5 +27,19 @@ final class CompletedPresenter: CompletedPresenterProtocol {
         self.view = view
         self.interactor = interactor
         self.router = router
+    }
+    
+//    MARK: - Helpers
+    
+    func checkInformation() {
+        interactor?.loadInformation()
+    }
+    
+    func setInformation(_ answer: [Delivered]) {
+        view?.setInformation(answer)
+    }
+    
+    func deleteSelectedItem(nickname: String) {
+        interactor?.deleteCompleted(nickname: nickname)
     }
 }

@@ -50,7 +50,14 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
             guard let start = item.user?.start else { return [] }
             let timeInTravel = (currentDate.timeIntervalSince1970 - start) / dayInSeconds
             let progress = Float(timeInTravel / timeDistance)
-            let progressString = progress > 1 ? "100" : String(format: "%.0f", progress * 100)
+            var progressString = ""
+            if progress >= 1 {
+                progressString = "100"
+                guard let nickname = item.user?.nickname else { return [] }
+                interactor?.completed(id: item.id, name: item.name, nickname: nickname)
+            } else {
+                progressString = String(format: "%.0f", progress * 100)
+            }
             
             let distance = (currentDate.timeIntervalSince1970 - start) * spaceSpeed
             let distanceString = String(format: "%.0f", distance)

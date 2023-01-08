@@ -31,6 +31,7 @@
 		BB6D6CA42968A8DB001B661D /* CompletedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */; };
 		BB6D6CA62968A94B001B661D /* CompletedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA52968A94B001B661D /* CompletedRouter.swift */; };
 		BB6D6CA82968AF35001B661D /* CompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA72968AF35001B661D /* CompletedCell.swift */; };
+		BB6D6CAA296AD566001B661D /* CompletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA9296AD566001B661D /* CompletedModel.swift */; };
 		BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */; };
 		BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */; };
 		BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */; };
@@ -80,6 +81,7 @@
 		BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedConfigurator.swift; sourceTree = "<group>"; };
 		BB6D6CA52968A94B001B661D /* CompletedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRouter.swift; sourceTree = "<group>"; };
 		BB6D6CA72968AF35001B661D /* CompletedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedCell.swift; sourceTree = "<group>"; };
+		BB6D6CA9296AD566001B661D /* CompletedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedModel.swift; sourceTree = "<group>"; };
 		BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidViewController.swift; sourceTree = "<group>"; };
 		BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidPresenter.swift; sourceTree = "<group>"; };
 		BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidInteractor.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				BB6D6CA12968A6E7001B661D /* CompletedInteractor.swift */,
 				BB6D6CA32968A8DB001B661D /* CompletedConfigurator.swift */,
 				BB6D6CA52968A94B001B661D /* CompletedRouter.swift */,
+				BB6D6CA9296AD566001B661D /* CompletedModel.swift */,
 				BB6D6CA72968AF35001B661D /* CompletedCell.swift */,
 			);
 			path = Completed;
@@ -381,6 +384,7 @@
 				BB6C0A17294B548700A3F662 /* HomeViewController.swift in Sources */,
 				BB73B8B9294F52B700472AA6 /* TravelTimeViewController.swift in Sources */,
 				BB6D6CA02968A61D001B661D /* CompletedPresenter.swift in Sources */,
+				BB6D6CAA296AD566001B661D /* CompletedModel.swift in Sources */,
 				BB69BF9F2957137B005AF5B7 /* FirstLauchConfigurator.swift in Sources */,
 				BB6D6CA82968AF35001B661D /* CompletedCell.swift in Sources */,
 			);

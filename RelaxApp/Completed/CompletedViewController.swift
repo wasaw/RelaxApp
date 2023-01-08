@@ -9,6 +9,7 @@ import UIKit
 
 protocol CompletedViewProtocol: AnyObject {
     var presenter: CompletedPresenterProtocol? { get set }
+    func setInformation(_ information: [Delivered])
 }
 
 final class CompletedViewController: UIViewController {
@@ -18,7 +19,10 @@ final class CompletedViewController: UIViewController {
     var presenter: CompletedPresenterProtocol?
     let configurator: CompletedConfiguratorProtocol = CompletedConfigurator()
     
-    var tableView: UITableView?
+    private var tableView: UITableView?
+    private weak var lastCell: CompletedCell?
+    private var selectedCellId: Int?
+    var information: [Delivered] = []
     
 //    MARK: - Lifecycle
     
@@ -26,12 +30,13 @@ final class CompletedViewController: UIViewController {
         super.viewDidLoad()
         
         configurator.config(with: self)
-        configUI()
+        configureUI()
+        presenter?.checkInformation()
     }
     
 //    MARK: - Helpers
     
-    private func configUI() {
+    private func configureUI() {
         tableView = UITableView(frame: .zero)
         guard let tableView = tableView else { return }
         tableView.register(CompletedCell.self, forCellReuseIdentifier: CompletedCell.identifire)
@@ -41,32 +46,67 @@ final class CompletedViewController: UIViewController {
         
         tableView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor)
         tableView.backgroundColor = .background
+        
+        view.backgroundColor = .background
     }
-    
 }
 
 //  MARK: - CompletedViewProtocol
 
 extension CompletedViewController: CompletedViewProtocol {
-    
+    func setInformation(_ information: [Delivered]) {
+        self.information = information
+        tableView?.reloadData()
+    }
 }
 
 //  MARK: - UITableViewDelegate
 
 extension CompletedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as? CompletedCell
+        lastCell?.hide()
+        let view = UIView()
+        view.backgroundColor = .selectedCell
+        cell?.selectedBackgroundView = view
+        selectedCellId = indexPath.row
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        cell?.show()
+        lastCell = cell
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if selectedCellId == indexPath.row {
+            return 80.0
+        }
+        return 52.0
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+          presenter?.deleteSelectedItem(nickname: information[indexPath.row].nickname)
+          information.remove(at: indexPath.row)
+          lastCell = nil
+          tableView.deleteRows(at: [indexPath], with: .fade)
+      }
+    }
 }
 
 //  MARK: - UITableViewDataSource
 
 extension CompletedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return information.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CompletedCell.identifire) as? CompletedCell else { return UITableViewCell() }
-        
+        cell.setInformation(value: information[indexPath.row])
         return cell
     }
 }
