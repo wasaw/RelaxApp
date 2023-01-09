@@ -53,6 +53,7 @@ final class ChoiseAsteroidViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(handleBackButton))
         configurator.configure(with: self)
         configureUI()
         presenter?.getDate()
@@ -66,7 +67,6 @@ final class ChoiseAsteroidViewController: UIViewController {
         configureSortView()
         configureAsteroidsCollection()
         configureSpinner()
-//        configureGuesture()
     }
     
     private func configureDaysCollection() {
@@ -109,21 +109,15 @@ final class ChoiseAsteroidViewController: UIViewController {
         spinner.startAnimating()
     }
     
-    private func configureGuesture() {
-        let right = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
-        right.direction = .right
-        view.addGestureRecognizer(right)
-    }
-    
 //    MARK: - Selectors
-    
-    @objc private func swipeRight(sender: UIPanGestureRecognizer) {
-        presenter?.swipeBack()
-    }
     
     @objc private func handleSortButton() {
         presenter?.sort(asteroid, direct: directSort)
         directSort = !directSort
+    }
+    
+    @objc private func handleBackButton() {
+        presenter?.goBack()
     }
 }
 

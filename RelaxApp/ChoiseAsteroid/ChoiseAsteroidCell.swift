@@ -21,12 +21,25 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Josefin Sans", size: 19)
         label.textColor = .textColor
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     private let distanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .textColor
         label.font = UIFont.boldSystemFont(ofSize: 23)
+        return label
+    }()
+    private let distanceDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Расстояние до выбранного астеройда"
+        label.textColor = .textColor
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
         
@@ -46,8 +59,7 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
     
     private func configureUI() {
         addSubview(titleLabel)
-        titleLabel.centerX(inView: self)
-        titleLabel.anchor(top: topAnchor, paddingTop: 5)
+        titleLabel.anchor(left: leftAnchor, top: topAnchor, right: rightAnchor, paddingLeft: 12, paddingTop: 5, paddingRight: -12, height: 45)
         
         addSubview(asteroidImageView)
         asteroidImageView.anchor(top: titleLabel.bottomAnchor, paddingTop: 15, width: 60, height: 60)
@@ -55,6 +67,9 @@ final class ChoiseAsteroidCell: UICollectionViewCell {
         addSubview(distanceLabel)
         distanceLabel.centerX(inView: self)
         distanceLabel.anchor(top: asteroidImageView.bottomAnchor, paddingTop: 25)
+        
+        addSubview(distanceDescriptionLabel)
+        distanceDescriptionLabel.anchor(left: leftAnchor, top: distanceLabel.bottomAnchor, right: rightAnchor, paddingLeft: 12, paddingTop: 15, paddingRight: -12)
         
         layer.cornerRadius = 15
         layer.borderWidth = 0.7

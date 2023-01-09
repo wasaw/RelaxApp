@@ -17,7 +17,7 @@ protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     func setDate(_ days: [Days])
     func loadInformation(date: String)
     func sort(_ asteroids: [Asteroid], direct: Bool)
-    func swipeBack()
+    func goBack()
 }
 
 final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
@@ -62,7 +62,7 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
         router?.presentTravelTime()
     }
     
-    func swipeBack() {
+    func goBack() {
         router?.swipeBack()
     }
     

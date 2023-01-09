@@ -36,10 +36,18 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
     func getDate() {
         var days: [Days] = []
         for i in -2...2 {
-            let nowDay = Calendar.current.component(.day, from: Date() + dayInSeconds * Double(i))
+            let currentDay = Date() + dayInSeconds * Double(i)
+            
+            let nowDay = Calendar.current.component(.day, from: currentDay)
             guard let fullDate = Calendar.current.date(byAdding: .day, value: i, to: Date()) else { return }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EE"
+            let weekDay = dateFormatter.string(from: currentDay)
+            
             let selectedDay = i == 0 ? true : false
-            let day = Days(day: nowDay, fullDate:  formatter.string(from: fullDate), selected: selectedDay)
+            
+            let day = Days(day: nowDay, weekDay: weekDay, fullDate:  formatter.string(from: fullDate), selected: selectedDay)
             days.append(day)
         }
         presenter?.setDate(days)
