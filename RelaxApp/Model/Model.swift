@@ -15,7 +15,6 @@ struct AsteroidInformation: Codable {
 struct AsteridStruct: Codable {
     let id: String
     let name: String
-    let is_potentially_hazardous_asteroid: Bool
     let close_approach_data: [ApproachData]
 }
 
@@ -35,7 +34,6 @@ struct MissDistance: Codable {
 struct Asteroid {
     let id: String
     let name: String
-    let isPotentiallyHazardous: Bool
     let speed: String
     let distance: Double
     var user: Credentials? = nil

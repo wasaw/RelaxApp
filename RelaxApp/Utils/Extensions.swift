@@ -10,7 +10,8 @@ import UIKit
 //  MARK: - UIColor
 
 extension UIColor {
-    static let background = UIColor(displayP3Red: 46/255, green: 78/255, blue: 116/255, alpha: 1)
+//    static let background = UIColor(displayP3Red: 46/255, green: 78/255, blue: 116/255, alpha: 1)
+    static let background = UIColor(displayP3Red: 38/255, green: 42/255, blue: 72/255, alpha: 1)
     static let textColor = UIColor(displayP3Red: 243/255, green: 249/255, blue: 249/255, alpha: 1)
     static let darkBlue = UIColor(displayP3Red: 53/255, green: 56/255, blue: 101/255, alpha: 1)
     static let selectedCell = UIColor(displayP3Red: 44/255, green: 209/255, blue: 222/255, alpha: 1)
@@ -22,6 +23,8 @@ extension UIColor {
     static let asteroidCellThird = UIColor(displayP3Red: 95/255, green: 77/255, blue: 137/255, alpha: 1)
     
     static let travelCellBackground = UIColor(displayP3Red: 53/255, green: 56/255, blue: 101/255, alpha: 1)
+    
+    static let selectedCompletedCell = UIColor(displayP3Red: 152/255, green: 189/255, blue: 221/255, alpha: 1)
 }
 
 //  MARK: - UIView
@@ -56,9 +59,9 @@ extension UIView {
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func centerY(inView view: UIView) {
+    func centerY(inView view: UIView, constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
-        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
     }
 }
 

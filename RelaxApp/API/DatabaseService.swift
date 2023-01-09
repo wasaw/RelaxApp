@@ -13,25 +13,17 @@ class DatabaseService {
     
 //    MARK: - Properties
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var context: NSManagedObjectContext
     
 //    MARK: - Lifecycle
     
-    func isEmpty(completion: @escaping(Bool) -> Void) {
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCredentials")
-        do {
-            let result = try context.fetch(fetchRequest)
-            if result.isEmpty {
-                completion(true)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        completion(false)
+    init() {
+        context = appDelegate.persistentContainer.viewContext
     }
     
+//    MARK: - Save
+    
     func saveInformation(user: Credentials, asteroid: Asteroid) {
-        let context = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "UserCredentials", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
@@ -48,7 +40,6 @@ class DatabaseService {
     }
     
     private func saveAsteroid(asteroid: Asteroid, predicate: String) {
-        let context = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "AsteroidData", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
@@ -70,19 +61,19 @@ class DatabaseService {
         }
     }
     
-    func saveCompleted(id: String, name: String, nickname: String) {
-        let context = appDelegate.persistentContainer.viewContext
+    func saveCompleted(id: String, name: String, user: Credentials) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Completed", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
         newRecord.setValue(name, forKey: "name")
-        newRecord.setValue(nickname, forKey: "nickname")
+        newRecord.setValue(user.nickname, forKey: "nickname")
+        newRecord.setValue(user.describe, forKey: "describe")
         
         let fetchRequestAsteroid = NSFetchRequest<NSFetchRequestResult>(entityName: "AsteroidData")
         fetchRequestAsteroid.predicate = NSPredicate(format: "id == %@", id)
         
         let fetchRequestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCredentials")
-        fetchRequestUser.predicate = NSPredicate(format: "nickname == %@", nickname)
+        fetchRequestUser.predicate = NSPredicate(format: "nickname == %@", user.nickname)
         
         do {
             let resultAsteroid = try context.fetch(fetchRequestAsteroid)
@@ -99,8 +90,25 @@ class DatabaseService {
         }
     }
     
+//    MARK: - Load
+    
+    func loadNickname(completion: @escaping(Set<String>) -> Void) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserCredentials")
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            var answer = Set<String>()
+            for data in result {
+                let nickname = data.value(forKey: "nickname") as? String ?? ""
+                answer.insert(nickname)
+            }
+            completion(answer)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     func loadInformation(completion: @escaping([Asteroid]?) -> Void)  {
-        let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
         
         do {
@@ -117,7 +125,7 @@ class DatabaseService {
                 let describe = visitor.value(forKey: "describe") as? String ?? ""
                 let start = visitor.value(forKey: "start") as? Double ?? 0
                 let user = Credentials(nickname: nickname, describe: describe, start: start)
-                let asteroid = Asteroid(id: id, name: name, isPotentiallyHazardous: false, speed: speed, distance: distance, user: user)
+                let asteroid = Asteroid(id: id, name: name, speed: speed, distance: distance, user: user)
                 asteroids.append(asteroid)
             }
             completion(asteroids)
@@ -128,7 +136,6 @@ class DatabaseService {
     }
     
     func loadCompleted(completion: @escaping([Delivered]) -> Void) {
-        let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Completed")
 
         do {
@@ -137,7 +144,8 @@ class DatabaseService {
             for data in result {
                 let name = data.value(forKey: "name") as? String ?? ""
                 let nickname = data.value(forKey: "nickname") as? String ?? ""
-                let item = Delivered(name: name, nickname: nickname)
+                let describe = data.value(forKey: "describe") as? String ?? ""
+                let item = Delivered(name: name, nickname: nickname, describe: describe)
                 answer.append(item)
             }
             completion(answer)
@@ -146,8 +154,9 @@ class DatabaseService {
         }
     }
     
+//    MARK: - Delete
+    
     func delete(nickname: String) {
-        let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Completed")
         fetchRequest.predicate = NSPredicate(format: "nickname == %@", nickname)
         

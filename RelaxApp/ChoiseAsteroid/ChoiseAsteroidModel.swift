@@ -7,6 +7,7 @@
 
 struct Days {
     let day: Int
+    let weekDay: String
     let fullDate: String
     var selected: Bool
 }

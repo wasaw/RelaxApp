@@ -12,6 +12,7 @@ protocol CompletedPresenterProtocol: AnyObject {
     func checkInformation()
     func setInformation(_ answer: [Delivered])
     func deleteSelectedItem(nickname: String)
+    func isEmpty(_ information: [Delivered])
 }
 
 final class CompletedPresenter: CompletedPresenterProtocol {
@@ -41,5 +42,11 @@ final class CompletedPresenter: CompletedPresenterProtocol {
     
     func deleteSelectedItem(nickname: String) {
         interactor?.deleteCompleted(nickname: nickname)
+    }
+    
+    func isEmpty(_ information: [Delivered]) {
+        if information.isEmpty {
+            view?.visibleTitle()
+        }
     }
 }

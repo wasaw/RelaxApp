@@ -18,11 +18,22 @@ final class TravelTimeViewController: UIViewController {
     var presenter: TravelTimePresenterProtocol?
     let configurator: TravelTimeConfiguratorProtocol = TravelTimeConfigurator()
     
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        return spinner
+    }()
+    
     private var users: [Credentials] = []
     private var travelTime: [TravelTime] = []
     private var collectionView: UICollectionView?
     
 //    MARK: - Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter?.updateInformation()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +54,13 @@ final class TravelTimeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor)
+        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingBottom: -110)
         collectionView.backgroundColor = .background
+        
+        view.addSubview(spinner)
+        spinner.centerX(inView: view)
+        spinner.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 120)
+        spinner.startAnimating()
     }
 }
 
@@ -52,11 +68,13 @@ final class TravelTimeViewController: UIViewController {
 
 extension TravelTimeViewController: TravelTimeViewProtocol {
     func presentLocalInformation(asteroids: [Asteroid], travelTime: [TravelTime]) {
+        users = []
         for item in asteroids {
             guard let user = item.user else { return }
             users.append(user)
         }
         self.travelTime = travelTime
+        spinner.stopAnimating()
         collectionView?.reloadData()
     }
 }
@@ -86,5 +104,7 @@ extension TravelTimeViewController: UICollectionViewDataSource {
 //  MARK: - UICollectionViewFlowLayout
 
 extension TravelTimeViewController: UICollectionViewDelegateFlowLayout {
-
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
 }

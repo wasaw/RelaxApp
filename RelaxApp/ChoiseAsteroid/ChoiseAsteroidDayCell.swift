@@ -15,7 +15,13 @@ final class ChoiseAsteroidDayCell: UICollectionViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 26)
-        label.textColor = .white
+        label.textColor = .textColor
+        return label
+    }()
+    private let weekdayLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 23)
+        label.textColor = .textColor
         return label
     }()
     
@@ -36,13 +42,18 @@ final class ChoiseAsteroidDayCell: UICollectionViewCell {
     private func configureUI() {
         addSubview(dateLabel)
         dateLabel.centerX(inView: self)
-        dateLabel.centerY(inView: self)
+        dateLabel.centerY(inView: self, constant: -15)
+        
+        addSubview(weekdayLabel)
+        weekdayLabel.centerX(inView: self)
+        weekdayLabel.centerY(inView: self, constant: 15)
         layer.cornerRadius = 15
     }
     
     func setInformation(day: Days) {
         backgroundColor = .darkBlue
         dateLabel.text = String(day.day)
+        weekdayLabel.text = day.weekDay
         if day.selected {
             backgroundColor = .selectedCell
         }

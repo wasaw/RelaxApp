@@ -27,7 +27,7 @@ final class HomeRouter: HomeRouterProtocol {
 //    MARK: - Helpers
     
     func presentChoiseAsteroid(for user: Credentials) {
-        let vc = ChoiseAsteroidViewController(user: user)
+        let vc = UINavigationController(rootViewController: ChoiseAsteroidViewController(user: user))
         vc.modalPresentationStyle = .fullScreen
         viewController?.present(vc, animated: true)
     }

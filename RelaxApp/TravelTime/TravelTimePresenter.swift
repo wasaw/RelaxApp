@@ -11,6 +11,7 @@ protocol TravelTimePresenterProtocol: AnyObject {
     var view: TravelTimeViewProtocol? { get set }
     var interactor: TravelTimeInteractorProtocol? { get set }
     var router: TravelTimeRouterProtocol? { get set }
+    func updateInformation()
     func presentLocalInformation(_ answer: [Asteroid])
 }
 
@@ -36,6 +37,10 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
     
 //    MARK: - Helpers
     
+    func updateInformation() {
+        interactor?.loadLocalInformation()
+    }
+    
     func presentLocalInformation(_ answer: [Asteroid]) {
         let travelTime = countTravelTime(answer)
         view?.presentLocalInformation(asteroids: answer, travelTime: travelTime)
@@ -53,8 +58,8 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
             var progressString = ""
             if progress >= 1 {
                 progressString = "100"
-                guard let nickname = item.user?.nickname else { return [] }
-                interactor?.completed(id: item.id, name: item.name, nickname: nickname)
+                guard let user = item.user else { return [] }
+                interactor?.completed(id: item.id, name: item.name, user: user)
             } else {
                 progressString = String(format: "%.0f", progress * 100)
             }

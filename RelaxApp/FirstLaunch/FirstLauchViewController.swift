@@ -20,17 +20,29 @@ final class FirstLauchViewController: UIViewController {
     
     private let titleLable: UILabel = {
         let label = UILabel()
-        label.text = "Медитативное приложение"
+        label.text = "RelaxApp"
         label.font = UIFont.boldSystemFont(ofSize: 23)
         label.textColor = .textColor
         return label
     }()
-    private let descriptionTextField: UITextField = {
-        let tf = UITextField()
-        tf.text = "Медитативное приложение"
-        tf.font = UIFont.systemFont(ofSize: 19)
-        tf.textColor = .textColor
-        return tf
+    private let descriptionTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = """
+Это приложение для психоэмоциональной разгрузки.
+
+С помощью него можно виртуально отправить надоевщую личность, мысли,
+проблему на пролетающий, в данный монент
+мимо земли, метеорит.
+
+Помогает в стрессовой ситуации отвлечься и снять раздражение.
+Посмотреть на проблему с другой стороны.
+"""
+        label.font = UIFont.systemFont(ofSize: 19)
+        label.textColor = .textColor
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
     }()
     private let dismissButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -61,12 +73,12 @@ final class FirstLauchViewController: UIViewController {
         titleLable.centerX(inView: view)
         titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
         
-        view.addSubview(descriptionTextField)
-        descriptionTextField.anchor(left: view.leftAnchor, top: titleLable.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingTop: 15, paddingRight: -15)
+        view.addSubview(descriptionTextLabel)
+        descriptionTextLabel.anchor(left: view.leftAnchor, top: titleLable.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingTop: 45, paddingRight: -15)
         
         view.addSubview(dismissButton)
         dismissButton.centerX(inView: view)
-        dismissButton.anchor(top: descriptionTextField.bottomAnchor, paddingTop: 40, width: 220, height: 60)
+        dismissButton.anchor(top: descriptionTextLabel.bottomAnchor, paddingTop: 40, width: 220, height: 60)
     }
     
 //    MARK: - Selectors

@@ -9,8 +9,8 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
-    func launchView(_ isFirst: Bool)
-    func setAlert()
+    func setAlert(_ message: String)
+    func clearLabel()
 }
 
 final class HomeViewController: UIViewController {
@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
     
     private let nicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Придумайте ник персонажа"
+        label.text = "Придумайте уникальный ник персонажа"
         label.textColor = .textColor
         label.font = UIFont.systemFont(ofSize: 16)
         return label
@@ -66,22 +66,12 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configurator.configure(with: self)
-        presenter?.isFirstLaunch()
+        configureUI()
         view.backgroundColor = .background
     }
     
 //    MARK: - Helpers
-    
-    func launchView(_ isFirst: Bool) {
-        configureUI()
-    }
-    
-    func setAlert() {
-        let alert = UIAlertController(title: "Внимание", message: "Пожалуйста, запилните все поля", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default))
-        present(alert, animated: true)
-    }
-    
+
     private func configureUI() {
         view.addSubview(nicknameLabel)
         nicknameLabel.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, paddingLeft: 10, paddingTop: 40, paddingRight: -10)
@@ -113,5 +103,14 @@ final class HomeViewController: UIViewController {
 //  MARK: - Extensions
 
 extension HomeViewController: HomeViewProtocol {
+    func setAlert(_ message: String) {
+        let alert = UIAlertController(title: "Внимание", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default))
+        present(alert, animated: true)
+    }
     
+    func clearLabel() {
+        nicknameTextField.text = ""
+        descriptionTextField.text = ""
+    }
 }
