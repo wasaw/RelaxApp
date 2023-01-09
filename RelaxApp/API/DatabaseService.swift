@@ -14,21 +14,7 @@ class DatabaseService {
 //    MARK: - Properties
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-//    MARK: - Lifecycle
-    
-    func isEmpty(completion: @escaping(Bool) -> Void) {
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserCredentials")
-        do {
-            let result = try context.fetch(fetchRequest)
-            if result.isEmpty {
-                completion(true)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        completion(false)
-    }
+//    MARK: - Save
     
     func saveInformation(user: Credentials, asteroid: Asteroid) {
         let context = appDelegate.persistentContainer.viewContext
@@ -99,6 +85,25 @@ class DatabaseService {
         }
     }
     
+//    MARK: - Load
+    
+    func loadNickname(completion: @escaping(Set<String>) -> Void) {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserCredentials")
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            var answer = Set<String>()
+            for data in result {
+                let nickname = data.value(forKey: "nickname") as? String ?? ""
+                answer.insert(nickname)
+            }
+            completion(answer)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     func loadInformation(completion: @escaping([Asteroid]?) -> Void)  {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
@@ -145,6 +150,8 @@ class DatabaseService {
             print(error.localizedDescription)
         }
     }
+    
+//    MARK: - Delete
     
     func delete(nickname: String) {
         let context = appDelegate.persistentContainer.viewContext

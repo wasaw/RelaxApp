@@ -21,6 +21,14 @@ final class CompletedViewController: UIViewController {
     
     private var tableView: UITableView?
     private weak var lastCell: CompletedCell?
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "У вас пока нет завершенных заданий"
+        label.font = UIFont.systemFont(ofSize: 19)
+        label.textColor = .white
+        return label
+    }()
+    
     private var selectedCellId: Int?
     var information: [Delivered] = []
     
@@ -45,8 +53,13 @@ final class CompletedViewController: UIViewController {
         view.addSubview(tableView)
         
         tableView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor)
+        tableView.tableFooterView = UIView()
         tableView.backgroundColor = .background
+        tableView.isHidden = true
         
+        view.addSubview(titleLabel)
+        titleLabel.centerX(inView: view)
+        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 25)
         view.backgroundColor = .background
     }
 }
@@ -56,6 +69,10 @@ final class CompletedViewController: UIViewController {
 extension CompletedViewController: CompletedViewProtocol {
     func setInformation(_ information: [Delivered]) {
         self.information = information
+        if !information.isEmpty {
+            tableView?.isHidden = false
+            titleLabel.isHidden = true
+        }
         tableView?.reloadData()
     }
 }
@@ -67,7 +84,7 @@ extension CompletedViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as? CompletedCell
         lastCell?.hide()
         let view = UIView()
-        view.backgroundColor = .selectedCell
+        view.backgroundColor = .selectedCompletedCell
         cell?.selectedBackgroundView = view
         selectedCellId = indexPath.row
         tableView.beginUpdates()

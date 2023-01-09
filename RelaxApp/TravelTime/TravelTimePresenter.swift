@@ -11,6 +11,7 @@ protocol TravelTimePresenterProtocol: AnyObject {
     var view: TravelTimeViewProtocol? { get set }
     var interactor: TravelTimeInteractorProtocol? { get set }
     var router: TravelTimeRouterProtocol? { get set }
+    func updateInformation()
     func presentLocalInformation(_ answer: [Asteroid])
 }
 
@@ -35,6 +36,10 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
     }
     
 //    MARK: - Helpers
+    
+    func updateInformation() {
+        interactor?.loadLocalInformation()
+    }
     
     func presentLocalInformation(_ answer: [Asteroid]) {
         let travelTime = countTravelTime(answer)

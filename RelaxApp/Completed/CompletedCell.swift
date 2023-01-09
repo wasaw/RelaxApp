@@ -15,11 +15,13 @@ final class CompletedCell: UITableViewCell {
     private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 19)
+        label.textColor = .white
         return label
     }()
     private let asteroidNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .white
         return label
     }()
     

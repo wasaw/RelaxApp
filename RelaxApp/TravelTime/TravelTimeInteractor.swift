@@ -22,7 +22,6 @@ final class TravelTimeInteractor: TravelTimeInteractorProtocol {
     
     init(presenter: TravelTimePresenterProtocol? = nil) {
         self.presenter = presenter
-        loadLocalInformation()
     }
     
 //    MARK: - Helpers

@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
-    func isFirstLaunch()
+    func getNickname()
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
@@ -25,10 +25,10 @@ final class HomeInteractor: HomeInteractorProtocol {
     
 //    MARK: - Helpers
     
-    func isFirstLaunch() {
+    func getNickname() {
         DispatchQueue.main.async {
-            DatabaseService.shared.isEmpty { answer in
-                self.presenter?.launchView(isFirst: answer)
+            DatabaseService.shared.loadNickname { result in
+                self.presenter?.setNickname(result)
             }
         }
     }

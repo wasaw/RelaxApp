@@ -11,16 +11,22 @@ protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
     func sendToFlight(nickname: String, describe: String)
-    func isFirstLaunch()
-    func launchView(isFirst: Bool)
+    func getNicknameSet()
+    func setNickname(_ result: Set<String>)
 }
 
 final class HomePresenter: HomePresenterProtocol {
     
 //    MARK: - Properties
     weak var view: HomeViewProtocol?
-    var interactor: HomeInteractorProtocol?
+    var interactor: HomeInteractorProtocol? {
+        didSet {
+            getNicknameSet()
+        }
+    }
     var router: HomeRouterProtocol?
+    
+    var nicknameSet = Set<String>()
     
 //    MARK: - Lifecycle
     
@@ -32,19 +38,24 @@ final class HomePresenter: HomePresenterProtocol {
     
     func sendToFlight(nickname: String, describe: String) {
         if (nickname.isEmpty || describe.isEmpty) {
-            view?.setAlert()
+            view?.setAlert("Пожалуйста, запилните все поля")
         } else {
-            let currentDate = Date().timeIntervalSince1970
-            let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
-            router?.presentChoiseAsteroid(for: user)
+            if nicknameSet.contains(nickname) {
+                view?.setAlert("Такой ник уже существует")
+            } else {
+                let currentDate = Date().timeIntervalSince1970
+                let user = Credentials(nickname: nickname, describe: describe, start: currentDate)
+                view?.clearLabel()
+                router?.presentChoiseAsteroid(for: user)
+            }
         }
     }
     
-    func isFirstLaunch() {
-        interactor?.isFirstLaunch()
+    func getNicknameSet() {
+        interactor?.getNickname()
     }
     
-    func launchView(isFirst: Bool) {
-        view?.launchView(isFirst)
+    func setNickname(_ result: Set<String>) {
+        nicknameSet = result
     }
 }

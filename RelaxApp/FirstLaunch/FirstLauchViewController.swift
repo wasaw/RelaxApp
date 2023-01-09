@@ -20,17 +20,26 @@ final class FirstLauchViewController: UIViewController {
     
     private let titleLable: UILabel = {
         let label = UILabel()
-        label.text = "Медитативное приложение"
+        label.text = "RelaxApp"
         label.font = UIFont.boldSystemFont(ofSize: 23)
         label.textColor = .textColor
         return label
     }()
-    private let descriptionTextField: UITextField = {
-        let tf = UITextField()
-        tf.text = "Медитативное приложение"
-        tf.font = UIFont.systemFont(ofSize: 19)
-        tf.textColor = .textColor
-        return tf
+    private let descriptionTextLabel: UILabel = {
+        let label = UILabel()
+        label.text = """
+Медитативное приложение.
+Данное приложение, позволяет отвлечься от терзающих мыслый,
+отправив их в дальнее странствие.
+
+Выкинуть из головы, перенеся в приложение.
+"""
+        label.font = UIFont.systemFont(ofSize: 19)
+        label.textColor = .textColor
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
     }()
     private let dismissButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -61,12 +70,12 @@ final class FirstLauchViewController: UIViewController {
         titleLable.centerX(inView: view)
         titleLable.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 15)
         
-        view.addSubview(descriptionTextField)
-        descriptionTextField.anchor(left: view.leftAnchor, top: titleLable.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingTop: 15, paddingRight: -15)
+        view.addSubview(descriptionTextLabel)
+        descriptionTextLabel.anchor(left: view.leftAnchor, top: titleLable.bottomAnchor, right: view.rightAnchor, paddingLeft: 15, paddingTop: 45, paddingRight: -15)
         
         view.addSubview(dismissButton)
         dismissButton.centerX(inView: view)
-        dismissButton.anchor(top: descriptionTextField.bottomAnchor, paddingTop: 40, width: 220, height: 60)
+        dismissButton.anchor(top: descriptionTextLabel.bottomAnchor, paddingTop: 40, width: 220, height: 60)
     }
     
 //    MARK: - Selectors

@@ -24,6 +24,12 @@ final class TravelTimeViewController: UIViewController {
     
 //    MARK: - Lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter?.updateInformation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +49,7 @@ final class TravelTimeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor)
+        collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingBottom: -110)
         collectionView.backgroundColor = .background
     }
 }
@@ -52,6 +58,7 @@ final class TravelTimeViewController: UIViewController {
 
 extension TravelTimeViewController: TravelTimeViewProtocol {
     func presentLocalInformation(asteroids: [Asteroid], travelTime: [TravelTime]) {
+        users = []
         for item in asteroids {
             guard let user = item.user else { return }
             users.append(user)
@@ -86,5 +93,5 @@ extension TravelTimeViewController: UICollectionViewDataSource {
 //  MARK: - UICollectionViewFlowLayout
 
 extension TravelTimeViewController: UICollectionViewDelegateFlowLayout {
-
+    
 }
