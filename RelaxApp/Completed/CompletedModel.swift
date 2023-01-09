@@ -8,4 +8,5 @@
 struct Delivered {
     let name: String
     let nickname: String
+    let describe: String
 }

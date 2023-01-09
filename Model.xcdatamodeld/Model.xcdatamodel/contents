@@ -8,6 +8,7 @@
         <relationship name="visitor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserCredentials"/>
     </entity>
     <entity name="Completed" representedClassName="Completed" syncable="YES" codeGenerationType="class">
+        <attribute name="describe" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nickname" optional="YES" attributeType="String"/>
         <relationship name="asteroid" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="AsteroidData"/>

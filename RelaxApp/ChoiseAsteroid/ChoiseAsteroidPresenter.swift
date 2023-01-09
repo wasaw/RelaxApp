@@ -47,11 +47,10 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
         for i in 0..<count {
             guard let id = loadInformation?[i].id else { return }
             guard let name = loadInformation?[i].name else { return }
-            guard let isPotentially = loadInformation?[i].is_potentially_hazardous_asteroid else { return }
             guard let speed = loadInformation?[i].close_approach_data[0].relative_velocity.kilometers_per_second else { return }
             guard let distanceString = loadInformation?[i].close_approach_data[0].miss_distance.kilometers.components(separatedBy: ".") else { return }
             guard let distance = Double(distanceString[0]) else { return }
-            let item = Asteroid(id: id, name: name, isPotentiallyHazardous: isPotentially, speed: speed, distance: distance)
+            let item = Asteroid(id: id, name: name, speed: speed, distance: distance)
             asteroid.append(item)
         }
         view?.setAsteroidInformation(asteroid: asteroid)

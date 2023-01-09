@@ -25,9 +25,6 @@ extension UIColor {
     static let travelCellBackground = UIColor(displayP3Red: 53/255, green: 56/255, blue: 101/255, alpha: 1)
     
     static let selectedCompletedCell = UIColor(displayP3Red: 152/255, green: 189/255, blue: 221/255, alpha: 1)
-    
-    static let oddCell = UIColor(displayP3Red: 238/255, green: 227/255, blue: 171/255, alpha: 1)
-    static let evenCell = UIColor(displayP3Red: 217/255, green: 207/255, blue: 193/255, alpha: 1)
 }
 
 //  MARK: - UIView

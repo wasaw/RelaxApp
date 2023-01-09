@@ -61,9 +61,11 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
         } else {
             currnetDateString = date
         }
-        NetworkService.shared.request(date: currnetDateString) { response in
-            guard let response = response else { return }
-            self.presenter?.asteroidProcessing(asteroidInformation: response, date: currnetDateString)
+        DispatchQueue.main.async {
+            NetworkService.shared.request(date: currnetDateString) { response in
+                guard let response = response else { return }
+                self.presenter?.asteroidProcessing(asteroidInformation: response, date: currnetDateString)
+            }
         }
     }
     

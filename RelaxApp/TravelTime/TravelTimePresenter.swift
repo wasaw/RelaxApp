@@ -58,8 +58,8 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
             var progressString = ""
             if progress >= 1 {
                 progressString = "100"
-                guard let nickname = item.user?.nickname else { return [] }
-                interactor?.completed(id: item.id, name: item.name, nickname: nickname)
+                guard let user = item.user else { return [] }
+                interactor?.completed(id: item.id, name: item.name, user: user)
             } else {
                 progressString = String(format: "%.0f", progress * 100)
             }

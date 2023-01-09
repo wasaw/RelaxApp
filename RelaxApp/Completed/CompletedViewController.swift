@@ -10,6 +10,7 @@ import UIKit
 protocol CompletedViewProtocol: AnyObject {
     var presenter: CompletedPresenterProtocol? { get set }
     func setInformation(_ information: [Delivered])
+    func visibleTitle()
 }
 
 final class CompletedViewController: UIViewController {
@@ -27,6 +28,11 @@ final class CompletedViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 19)
         label.textColor = .white
         return label
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        return spinner
     }()
     
     private var selectedCellId: Int?
@@ -61,6 +67,11 @@ final class CompletedViewController: UIViewController {
         titleLabel.centerX(inView: view)
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 25)
         view.backgroundColor = .background
+        
+        view.addSubview(spinner)
+        spinner.centerX(inView: view)
+        spinner.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 120)
+        spinner.startAnimating()
     }
 }
 
@@ -73,7 +84,12 @@ extension CompletedViewController: CompletedViewProtocol {
             tableView?.isHidden = false
             titleLabel.isHidden = true
         }
+        spinner.stopAnimating()
         tableView?.reloadData()
+    }
+    
+    func visibleTitle() {
+        titleLabel.isHidden = false
     }
 }
 
@@ -95,7 +111,7 @@ extension CompletedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if selectedCellId == indexPath.row {
-            return 80.0
+            return 170.0
         }
         return 52.0
     }
@@ -109,6 +125,7 @@ extension CompletedViewController: UITableViewDelegate {
           presenter?.deleteSelectedItem(nickname: information[indexPath.row].nickname)
           information.remove(at: indexPath.row)
           lastCell = nil
+          presenter?.isEmpty(information)
           tableView.deleteRows(at: [indexPath], with: .fade)
       }
     }

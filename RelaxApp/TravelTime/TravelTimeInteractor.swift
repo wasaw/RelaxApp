@@ -10,7 +10,7 @@ import Foundation
 protocol TravelTimeInteractorProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
     func loadLocalInformation()
-    func completed(id: String, name: String, nickname: String)
+    func completed(id: String, name: String, user: Credentials)
 }
 
 final class TravelTimeInteractor: TravelTimeInteractorProtocol {
@@ -35,9 +35,16 @@ final class TravelTimeInteractor: TravelTimeInteractorProtocol {
         }
     }
     
-    func completed(id: String, name: String, nickname: String) {
+    func completed(id: String, name: String, user: Credentials) {
         DispatchQueue.main.async {
-            DatabaseService.shared.saveCompleted(id: id, name: name, nickname: nickname)
+            DatabaseService.shared.loadCompleted { result in
+                for item in result {
+                    if item.nickname == user.nickname {
+                        return
+                    }
+                }
+                    DatabaseService.shared.saveCompleted(id: id, name: name, user: user)
+            }
         }
     }
 }

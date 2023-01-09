@@ -18,6 +18,11 @@ final class TravelTimeViewController: UIViewController {
     var presenter: TravelTimePresenterProtocol?
     let configurator: TravelTimeConfiguratorProtocol = TravelTimeConfigurator()
     
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        return spinner
+    }()
+    
     private var users: [Credentials] = []
     private var travelTime: [TravelTime] = []
     private var collectionView: UICollectionView?
@@ -51,6 +56,11 @@ final class TravelTimeViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.anchor(left: view.leftAnchor, top: view.safeAreaLayoutGuide.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, paddingBottom: -110)
         collectionView.backgroundColor = .background
+        
+        view.addSubview(spinner)
+        spinner.centerX(inView: view)
+        spinner.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 120)
+        spinner.startAnimating()
     }
 }
 
@@ -64,6 +74,7 @@ extension TravelTimeViewController: TravelTimeViewProtocol {
             users.append(user)
         }
         self.travelTime = travelTime
+        spinner.stopAnimating()
         collectionView?.reloadData()
     }
 }
@@ -93,5 +104,7 @@ extension TravelTimeViewController: UICollectionViewDataSource {
 //  MARK: - UICollectionViewFlowLayout
 
 extension TravelTimeViewController: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+    }
 }
