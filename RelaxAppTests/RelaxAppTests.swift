@@ -7,28 +7,54 @@
 
 import XCTest
 
+@testable import RelaxApp
+
 final class RelaxAppTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testSort() {
+        let presenter = ChoiseAsteroidPresenter()
+        
+        let asteroid = Asteroid(id: "2226554", name: "226554 (2003 WR21)", speed: "8.9964778319", distance: 10851494.0)
+        let  asteroid2 = Asteroid(id: "3157028", name: "(2003 MK4)", speed: "14.5133881189", distance: 16677866.0)
+        let asteroidArray = [asteroid, asteroid2]
+        let answer = presenter.sorted(asteroidArray, direct: false)
+        
+        let asteroidAnswer = [asteroid2, asteroid]
+        
+        XCTAssertEqual(answer[0].id, asteroidAnswer[0].id)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testCountTravelTime() {
+        let presenter = TravelTimePresenter()
+        
+        let user = Credentials(nickname: "user", describe: "describe", start: 1673273039)
+        let user2 = Credentials(nickname: "user2", describe: "describe2", start: 1672496935.60536)
+        let asteroid = Asteroid(id: "2226554", name: "226554 (2003 WR21)", speed: "8.9964778319", distance: 10851494.0, user: user)
+        let  asteroid2 = Asteroid(id: "3157028", name: "(2003 MK4)", speed: "14.5133881189", distance: 16677866.0, user: user2)
+        let asteroidArray = [asteroid, asteroid2]
+        
+        let timeInTravel = (Date().timeIntervalSince1970 - 1673273039) / 86400.0
+        let timeDistance = (10851494.0 / 16.65) / 86400.0
+        let progress = Float(timeInTravel / timeDistance)
+        
+        let answer = presenter.countTravelTime(asteroidArray)
+        
+        XCTAssertEqual(answer[0].progress, progress)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testLoadNickname() {
+        let database = DatabaseService.shared
+        
+        database.loadNickname { answer in
+            XCTAssert(answer.contains("Босс"))
+        }
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    
+    func testLoadCompleted() {
+        let database = DatabaseService.shared
+        
+        database.loadCompleted { answer in
+            XCTAssert(answer.isEmpty || answer[0].nickname == "Попутчик")
         }
     }
 
