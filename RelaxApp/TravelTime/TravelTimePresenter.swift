@@ -46,15 +46,16 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
         view?.presentLocalInformation(asteroids: answer, travelTime: travelTime)
     }
     
-    private func countTravelTime(_ asteroids: [Asteroid]) -> [TravelTime] {
+    func countTravelTime(_ asteroids: [Asteroid]) -> [TravelTime] {
         var travelTime: [TravelTime] = []
         let currentDate = Date()
 
         for item in asteroids {
-            let timeDistance = (item.distance / spaceSpeed) / dayInSeconds
+            let timeDistance = item.distance / spaceSpeed
             guard let start = item.user?.start else { return [] }
-            let timeInTravel = (currentDate.timeIntervalSince1970 - start) / dayInSeconds
+            let timeInTravel = currentDate.timeIntervalSince1970 - start
             let progress = Float(timeInTravel / timeDistance)
+            
             var progressString = ""
             if progress >= 1 {
                 progressString = "100"

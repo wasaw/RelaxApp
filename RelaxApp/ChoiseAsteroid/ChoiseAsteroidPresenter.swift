@@ -78,12 +78,16 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     }
     
     func sort(_ asteroids: [Asteroid], direct: Bool) {
-        let result = asteroids.sorted { lhs, rhs in
+        let result = sorted(asteroids, direct: direct)
+        view?.setAsteroidInformation(asteroid: result)
+    }
+    
+    func sorted(_ asteroids: [Asteroid], direct: Bool) -> [Asteroid] {
+        asteroids.sorted { lhs, rhs in
             if direct {
                 return lhs.distance < rhs.distance
             }
             return lhs.distance > rhs.distance
         }
-        view?.setAsteroidInformation(asteroid: result)
     }
 }

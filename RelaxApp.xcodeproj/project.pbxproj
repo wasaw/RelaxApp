@@ -32,6 +32,7 @@
 		BB6D6CA62968A94B001B661D /* CompletedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA52968A94B001B661D /* CompletedRouter.swift */; };
 		BB6D6CA82968AF35001B661D /* CompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA72968AF35001B661D /* CompletedCell.swift */; };
 		BB6D6CAA296AD566001B661D /* CompletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6D6CA9296AD566001B661D /* CompletedModel.swift */; };
+		BB6F3A93296CB322006847D2 /* RelaxAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6F3A92296CB322006847D2 /* RelaxAppTests.swift */; };
 		BB73B8A0294CA49500472AA6 /* ChoiseAsteroidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */; };
 		BB73B8A2294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */; };
 		BB73B8A4294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */; };
@@ -53,6 +54,16 @@
 		BB73B91029549B3200472AA6 /* TravelTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B90F29549B3200472AA6 /* TravelTimeModel.swift */; };
 		BB73B9122954A5F400472AA6 /* TravelTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B9112954A5F300472AA6 /* TravelTimeCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB6F3A94296CB322006847D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6C09F6294B1CCF00A3F662 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB6C09FD294B1CCF00A3F662;
+			remoteInfo = RelaxApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +93,8 @@
 		BB6D6CA52968A94B001B661D /* CompletedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedRouter.swift; sourceTree = "<group>"; };
 		BB6D6CA72968AF35001B661D /* CompletedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedCell.swift; sourceTree = "<group>"; };
 		BB6D6CA9296AD566001B661D /* CompletedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedModel.swift; sourceTree = "<group>"; };
+		BB6F3A90296CB322006847D2 /* RelaxAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelaxAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6F3A92296CB322006847D2 /* RelaxAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaxAppTests.swift; sourceTree = "<group>"; };
 		BB73B89F294CA49500472AA6 /* ChoiseAsteroidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidViewController.swift; sourceTree = "<group>"; };
 		BB73B8A1294CA4FA00472AA6 /* ChoiseAsteroidPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidPresenter.swift; sourceTree = "<group>"; };
 		BB73B8A3294CA59F00472AA6 /* ChoiseAsteroidInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidInteractor.swift; sourceTree = "<group>"; };
@@ -107,6 +120,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		BB6C09FB294B1CCF00A3F662 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB6F3A8D296CB322006847D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,6 +161,7 @@
 			children = (
 				BB73B8C6295096DE00472AA6 /* Model.xcdatamodeld */,
 				BB6C0A00294B1CCF00A3F662 /* RelaxApp */,
+				BB6F3A91296CB322006847D2 /* RelaxAppTests */,
 				BB6C09FF294B1CCF00A3F662 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */,
+				BB6F3A90296CB322006847D2 /* RelaxAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +238,14 @@
 				BB6D6CA72968AF35001B661D /* CompletedCell.swift */,
 			);
 			path = Completed;
+			sourceTree = "<group>";
+		};
+		BB6F3A91296CB322006847D2 /* RelaxAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB6F3A92296CB322006847D2 /* RelaxAppTests.swift */,
+			);
+			path = RelaxAppTests;
 			sourceTree = "<group>";
 		};
 		BB73B89E294CA33C00472AA6 /* ChoiseAsteroid */ = {
@@ -294,6 +324,24 @@
 			productReference = BB6C09FE294B1CCF00A3F662 /* RelaxApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BB6F3A8F296CB322006847D2 /* RelaxAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB6F3A98296CB322006847D2 /* Build configuration list for PBXNativeTarget "RelaxAppTests" */;
+			buildPhases = (
+				BB6F3A8C296CB322006847D2 /* Sources */,
+				BB6F3A8D296CB322006847D2 /* Frameworks */,
+				BB6F3A8E296CB322006847D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB6F3A95296CB322006847D2 /* PBXTargetDependency */,
+			);
+			name = RelaxAppTests;
+			productName = RelaxAppTests;
+			productReference = BB6F3A90296CB322006847D2 /* RelaxAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -306,6 +354,10 @@
 				TargetAttributes = {
 					BB6C09FD294B1CCF00A3F662 = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					BB6F3A8F296CB322006847D2 = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = BB6C09FD294B1CCF00A3F662;
 					};
 				};
 			};
@@ -323,6 +375,7 @@
 			projectRoot = "";
 			targets = (
 				BB6C09FD294B1CCF00A3F662 /* RelaxApp */,
+				BB6F3A8F296CB322006847D2 /* RelaxAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,6 +388,13 @@
 				BB6C0A0E294B1CD400A3F662 /* LaunchScreen.storyboard in Resources */,
 				BB6C0A0B294B1CD400A3F662 /* Assets.xcassets in Resources */,
 				BB69BFAE29575D11005AF5B7 /* JosefinSans-wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB6F3A8E296CB322006847D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +450,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB6F3A8C296CB322006847D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6F3A93296CB322006847D2 /* RelaxAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB6F3A95296CB322006847D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB6C09FD294B1CCF00A3F662 /* RelaxApp */;
+			targetProxy = BB6F3A94296CB322006847D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BB6C0A0C294B1CD400A3F662 /* LaunchScreen.storyboard */ = {
@@ -582,6 +658,42 @@
 			};
 			name = Release;
 		};
+		BB6F3A96296CB322006847D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4G4D5WHAZT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.RelaxAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelaxApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RelaxApp";
+			};
+			name = Debug;
+		};
+		BB6F3A97296CB322006847D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4G4D5WHAZT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.RelaxAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelaxApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RelaxApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,6 +711,15 @@
 			buildConfigurations = (
 				BB6C0A13294B1CD400A3F662 /* Debug */,
 				BB6C0A14294B1CD400A3F662 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB6F3A98296CB322006847D2 /* Build configuration list for PBXNativeTarget "RelaxAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB6F3A96296CB322006847D2 /* Debug */,
+				BB6F3A97296CB322006847D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
