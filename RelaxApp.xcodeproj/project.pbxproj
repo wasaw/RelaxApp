@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB591070297032CF00B6430A /* CompletedMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59106F297032CF00B6430A /* CompletedMock.swift */; };
+		BB591073297040D800B6430A /* CompletedPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB591072297040D800B6430A /* CompletedPresenterTest.swift */; };
+		BB5910792970586600B6430A /* TravelTimeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5910782970586600B6430A /* TravelTimeMock.swift */; };
+		BB59107B2970588500B6430A /* TravelTimePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59107A2970588500B6430A /* TravelTimePresenterTest.swift */; };
+		BB59107D2970658700B6430A /* ChoiseAsteroidMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59107C2970658700B6430A /* ChoiseAsteroidMock.swift */; };
+		BB59107F297065B400B6430A /* ChoiseAsteroidPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59107E297065B400B6430A /* ChoiseAsteroidPresenterTest.swift */; };
+		BB591081297098C700B6430A /* HomeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB591080297098C700B6430A /* HomeMock.swift */; };
+		BB591083297098EF00B6430A /* HomePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB591082297098EF00B6430A /* HomePresenterTest.swift */; };
 		BB69BF9929571204005AF5B7 /* FirstLauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */; };
 		BB69BF9B2957128B005AF5B7 /* FirstLauchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9A2957128B005AF5B7 /* FirstLauchPresenter.swift */; };
 		BB69BF9D2957132E005AF5B7 /* FirstLauchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */; };
@@ -66,6 +74,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB59106F297032CF00B6430A /* CompletedMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedMock.swift; sourceTree = "<group>"; };
+		BB591072297040D800B6430A /* CompletedPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedPresenterTest.swift; sourceTree = "<group>"; };
+		BB5910782970586600B6430A /* TravelTimeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimeMock.swift; sourceTree = "<group>"; };
+		BB59107A2970588500B6430A /* TravelTimePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTimePresenterTest.swift; sourceTree = "<group>"; };
+		BB59107C2970658700B6430A /* ChoiseAsteroidMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidMock.swift; sourceTree = "<group>"; };
+		BB59107E297065B400B6430A /* ChoiseAsteroidPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiseAsteroidPresenterTest.swift; sourceTree = "<group>"; };
+		BB591080297098C700B6430A /* HomeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMock.swift; sourceTree = "<group>"; };
+		BB591082297098EF00B6430A /* HomePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTest.swift; sourceTree = "<group>"; };
 		BB69BF9829571204005AF5B7 /* FirstLauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchViewController.swift; sourceTree = "<group>"; };
 		BB69BF9A2957128B005AF5B7 /* FirstLauchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchPresenter.swift; sourceTree = "<group>"; };
 		BB69BF9C2957132E005AF5B7 /* FirstLauchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLauchInteractor.swift; sourceTree = "<group>"; };
@@ -136,6 +152,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB5910712970407700B6430A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BB591082297098EF00B6430A /* HomePresenterTest.swift */,
+				BB59107E297065B400B6430A /* ChoiseAsteroidPresenterTest.swift */,
+				BB59107A2970588500B6430A /* TravelTimePresenterTest.swift */,
+				BB591072297040D800B6430A /* CompletedPresenterTest.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BB5910742970541200B6430A /* MockObjects */ = {
+			isa = PBXGroup;
+			children = (
+				BB591080297098C700B6430A /* HomeMock.swift */,
+				BB59107C2970658700B6430A /* ChoiseAsteroidMock.swift */,
+				BB5910782970586600B6430A /* TravelTimeMock.swift */,
+				BB59106F297032CF00B6430A /* CompletedMock.swift */,
+			);
+			path = MockObjects;
+			sourceTree = "<group>";
+		};
+		BB59108B29709E6500B6430A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		BB69BF9729570FDB005AF5B7 /* FirstLaunch */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +288,9 @@
 		BB6F3A91296CB322006847D2 /* RelaxAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BB5910742970541200B6430A /* MockObjects */,
+				BB5910712970407700B6430A /* Presenter */,
+				BB59108B29709E6500B6430A /* Interactor */,
 				BB6F3A92296CB322006847D2 /* RelaxAppTests.swift */,
 			);
 			path = RelaxAppTests;
@@ -454,7 +502,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB59107B2970588500B6430A /* TravelTimePresenterTest.swift in Sources */,
 				BB6F3A93296CB322006847D2 /* RelaxAppTests.swift in Sources */,
+				BB591073297040D800B6430A /* CompletedPresenterTest.swift in Sources */,
+				BB5910792970586600B6430A /* TravelTimeMock.swift in Sources */,
+				BB591081297098C700B6430A /* HomeMock.swift in Sources */,
+				BB59107D2970658700B6430A /* ChoiseAsteroidMock.swift in Sources */,
+				BB591083297098EF00B6430A /* HomePresenterTest.swift in Sources */,
+				BB59107F297065B400B6430A /* ChoiseAsteroidPresenterTest.swift in Sources */,
+				BB591070297032CF00B6430A /* CompletedMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 4G4D5WHAZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RelaxApp/Info.plist;
@@ -634,6 +691,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 4G4D5WHAZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RelaxApp/Info.plist;

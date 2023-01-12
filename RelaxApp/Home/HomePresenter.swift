@@ -8,10 +8,11 @@
 import Foundation
 
 protocol HomePresenterProtocol: AnyObject {
+    var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
     func sendToFlight(nickname: String, describe: String)
-    func getNicknameSet()
+    func getNickname()
     func setNickname(_ result: Set<String>)
 }
 
@@ -21,7 +22,7 @@ final class HomePresenter: HomePresenterProtocol {
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorProtocol? {
         didSet {
-            getNicknameSet()
+            getNickname()
         }
     }
     var router: HomeRouterProtocol?
@@ -51,7 +52,7 @@ final class HomePresenter: HomePresenterProtocol {
         }
     }
     
-    func getNicknameSet() {
+    func getNickname() {
         interactor?.getNickname()
     }
     

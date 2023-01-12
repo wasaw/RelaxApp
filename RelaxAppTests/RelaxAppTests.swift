@@ -57,5 +57,5 @@ final class RelaxAppTests: XCTestCase {
             XCTAssert(answer.isEmpty || answer[0].nickname == "Попутчик")
         }
     }
-
+    
 }
