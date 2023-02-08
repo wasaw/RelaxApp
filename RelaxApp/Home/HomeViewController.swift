@@ -11,6 +11,7 @@ protocol HomeViewProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func setAlert(_ message: String)
     func clearLabel()
+    func presentAlert(title: String, message: String)
 }
 
 final class HomeViewController: UIViewController {
@@ -112,5 +113,9 @@ extension HomeViewController: HomeViewProtocol {
     func clearLabel() {
         nicknameTextField.text = ""
         descriptionTextField.text = ""
+    }
+    
+    func presentAlert(title: String, message: String) {
+        alert(with: title, and: message)
     }
 }

@@ -63,15 +63,27 @@ final class ChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
         }
         DispatchQueue.main.async {
             NetworkService.shared.request(date: currnetDateString) { response in
-                guard let response = response else { return }
-                self.presenter?.asteroidProcessing(asteroidInformation: response, date: currnetDateString)
+                switch response {
+                case .success(let answer):
+                    guard let answer = answer else { return }
+                    self.presenter?.asteroidProcessing(asteroidInformation: answer, date: currnetDateString)
+                case .failure(let error):
+                    self.presenter?.presentAlert(title: "Ошибка", message: error.localizedDescription)
+                }
             }
         }
     }
     
     func saveDepartureInformation(user: Credentials, asteroid: Asteroid) {
         DispatchQueue.main.async {
-            DatabaseService.shared.saveInformation(user: user, asteroid: asteroid)
+            DatabaseService.shared.saveInformation(user: user, asteroid: asteroid) { response in
+                switch response {
+                case .success(_):
+                    break
+                case .failure(let error):
+                    self.presenter?.presentAlert(title: "Ошибка", message: error.localizedDescription)
+                }
+            }
         }
     }
 }

@@ -25,6 +25,10 @@ class MockHomeView: HomeViewProtocol {
     func clearLabel() {
         self.isClear = true
     }
+    
+    func presentAlert(title: String, message: String) {
+        
+    }
 }
 
 class MockHomeInteractor: HomeInteractorProtocol {

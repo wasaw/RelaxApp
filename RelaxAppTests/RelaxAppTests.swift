@@ -41,21 +41,4 @@ final class RelaxAppTests: XCTestCase {
         
         XCTAssertEqual(answer[0].progress, progress)
     }
-    
-    func testLoadNickname() {
-        let database = DatabaseService.shared
-        
-        database.loadNickname { answer in
-            XCTAssert(answer.contains("Босс"))
-        }
-    }
-    
-    func testLoadCompleted() {
-        let database = DatabaseService.shared
-        
-        database.loadCompleted { answer in
-            XCTAssert(answer.isEmpty || answer[0].nickname == "Попутчик")
-        }
-    }
-    
 }

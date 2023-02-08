@@ -11,6 +11,7 @@ protocol ChoiseAsteroidViewProtocol: AnyObject {
     var presenter: ChoiseAsteroidPresenterProtocol? { get set }
     func setAsteroidInformation(asteroid: [Asteroid])
     func setDate(_ days: [Days])
+    func presentAlert(title: String, message: String)
 }
 
 final class ChoiseAsteroidViewController: UIViewController {
@@ -135,6 +136,10 @@ extension ChoiseAsteroidViewController: ChoiseAsteroidViewProtocol {
     func setDate(_ days: [Days]) {
         self.days = days
         daysCollectionView?.reloadData()
+    }
+    
+    func presentAlert(title: String, message: String) {
+        alert(with: title, and: message)
     }
 }
 

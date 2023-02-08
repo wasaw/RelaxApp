@@ -10,6 +10,7 @@ import UIKit
 protocol TravelTimeViewProtocol: AnyObject {
     var presenter: TravelTimePresenterProtocol? { get set }
     func presentLocalInformation(asteroids: [Asteroid], travelTime: [TravelTime])
+    func presentAlert(title: String, message: String)
 }
 
 final class TravelTimeViewController: UIViewController {
@@ -76,6 +77,10 @@ extension TravelTimeViewController: TravelTimeViewProtocol {
         self.travelTime = travelTime
         spinner.stopAnimating()
         collectionView?.reloadData()
+    }
+    
+    func presentAlert(title: String, message: String) {
+        self.alert(with: title, and: message)
     }
 }
 

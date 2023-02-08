@@ -13,6 +13,7 @@ protocol CompletedPresenterProtocol: AnyObject {
     func setInformation(_ answer: [Delivered])
     func deleteSelectedItem(nickname: String)
     func isEmpty(_ information: [Delivered])
+    func presentAlert(title: String, message: String)
 }
 
 final class CompletedPresenter: CompletedPresenterProtocol {
@@ -48,5 +49,9 @@ final class CompletedPresenter: CompletedPresenterProtocol {
         if information.isEmpty {
             view?.visibleTitle()
         }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        view?.presentAlert(title: title, message: message)
     }
 }

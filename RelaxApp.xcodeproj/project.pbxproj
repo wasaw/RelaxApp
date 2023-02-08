@@ -174,13 +174,6 @@
 			path = MockObjects;
 			sourceTree = "<group>";
 		};
-		BB59108B29709E6500B6430A /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		BB69BF9729570FDB005AF5B7 /* FirstLaunch */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +283,6 @@
 			children = (
 				BB5910742970541200B6430A /* MockObjects */,
 				BB5910712970407700B6430A /* Presenter */,
-				BB59108B29709E6500B6430A /* Interactor */,
 				BB6F3A92296CB322006847D2 /* RelaxAppTests.swift */,
 			);
 			path = RelaxAppTests;

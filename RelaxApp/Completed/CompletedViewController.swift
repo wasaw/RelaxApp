@@ -11,6 +11,7 @@ protocol CompletedViewProtocol: AnyObject {
     var presenter: CompletedPresenterProtocol? { get set }
     func setInformation(_ information: [Delivered])
     func visibleTitle()
+    func presentAlert(title: String, message: String)
 }
 
 final class CompletedViewController: UIViewController {
@@ -90,6 +91,10 @@ extension CompletedViewController: CompletedViewProtocol {
     
     func visibleTitle() {
         titleLabel.isHidden = false
+    }
+    
+    func presentAlert(title: String, message: String) {
+        alert(with: title, and: message)
     }
 }
 

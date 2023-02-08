@@ -38,4 +38,8 @@ class MockTravelTimeView: TravelTimeViewProtocol {
     func presentLocalInformation(asteroids: [RelaxApp.Asteroid], travelTime: [RelaxApp.TravelTime]) {
         self.result = true
     }
+    
+    func presentAlert(title: String, message: String) {
+        
+    }
 }

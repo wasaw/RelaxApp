@@ -17,6 +17,7 @@ protocol ChoiseAsteroidPresenterProtocol: AnyObject {
     func setDate(_ days: [Days])
     func loadInformation(date: String)
     func sort(_ asteroids: [Asteroid], direct: Bool)
+    func presentAlert(title: String, message: String)
     func goBack()
 }
 
@@ -75,6 +76,10 @@ final class ChoiseAsteroidPresenter: ChoiseAsteroidPresenterProtocol {
     
     func loadInformation(date: String) {
         interactor?.loadInformation(date: date)
+    }
+    
+    func presentAlert(title: String, message: String) {
+        view?.presentAlert(title: title, message: message)
     }
     
     func sort(_ asteroids: [Asteroid], direct: Bool) {

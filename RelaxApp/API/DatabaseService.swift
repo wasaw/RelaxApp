@@ -23,7 +23,7 @@ class DatabaseService {
     
 //    MARK: - Save
     
-    func saveInformation(user: Credentials, asteroid: Asteroid) {
+    func saveInformation(user: Credentials, asteroid: Asteroid, completion: @escaping(ResponseStatus<Bool>) -> Void) {
         guard let entity = NSEntityDescription.entity(forEntityName: "UserCredentials", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
@@ -33,13 +33,20 @@ class DatabaseService {
         
         do {
             try context.save()
-            saveAsteroid(asteroid: asteroid, predicate: user.nickname)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            saveAsteroid(asteroid: asteroid, predicate: user.nickname) { response in
+                switch response {
+                case .success(_):
+                    completion(.success(true))
+                case .failure(_):
+                    completion(.failure(CoreDataError.somethingError))
+                }
+            }
+        } catch {
+            completion(.failure(CoreDataError.somethingError))
         }
     }
     
-    private func saveAsteroid(asteroid: Asteroid, predicate: String) {
+    private func saveAsteroid(asteroid: Asteroid, predicate: String, competion: @escaping(ResponseStatus<Bool>) -> Void) {
         guard let entity = NSEntityDescription.entity(forEntityName: "AsteroidData", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
@@ -56,12 +63,13 @@ class DatabaseService {
             guard let user = result.first as? NSManagedObject else { return }
             newRecord.setValue(user, forKey: "visitor")
             try context.save()
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            competion(.success(true))
+        } catch {
+            competion(.failure(CoreDataError.somethingError))
         }
     }
     
-    func saveCompleted(id: String, name: String, user: Credentials) {
+    func saveCompleted(id: String, name: String, user: Credentials, completion: @escaping(ResponseStatus<Bool>) -> Void) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Completed", in: context) else { return }
         
         let newRecord = NSManagedObject(entity: entity, insertInto: context)
@@ -85,14 +93,15 @@ class DatabaseService {
             newRecord.setValue(asteroid, forKey: "asteroid")
             newRecord.setValue(user, forKey: "user")
             try context.save()
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            completion(.success(true))
+        } catch {
+            completion(.failure(CoreDataError.somethingError))
         }
     }
     
 //    MARK: - Load
     
-    func loadNickname(completion: @escaping(Set<String>) -> Void) {
+    func loadNickname(completion: @escaping(ResponseStatus<Set<String>>) -> Void) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserCredentials")
         
         do {
@@ -102,13 +111,13 @@ class DatabaseService {
                 let nickname = data.value(forKey: "nickname") as? String ?? ""
                 answer.insert(nickname)
             }
-            completion(answer)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            completion(.success(answer))
+        } catch {
+            completion(.failure(CoreDataError.somethingError))
         }
     }
     
-    func loadInformation(completion: @escaping([Asteroid]?) -> Void)  {
+    func loadInformation(completion: @escaping(ResponseStatus<[Asteroid]?>) -> Void)  {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AsteroidData")
         
         do {
@@ -128,14 +137,13 @@ class DatabaseService {
                 let asteroid = Asteroid(id: id, name: name, speed: speed, distance: distance, user: user)
                 asteroids.append(asteroid)
             }
-            completion(asteroids)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            completion(.success(asteroids))
+        } catch {
+            completion(.failure(CoreDataError.somethingError))
         }
-        completion(nil)
     }
     
-    func loadCompleted(completion: @escaping([Delivered]) -> Void) {
+    func loadCompleted(completion: @escaping(ResponseStatus<[Delivered]>) -> Void) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Completed")
 
         do {
@@ -148,15 +156,15 @@ class DatabaseService {
                 let item = Delivered(name: name, nickname: nickname, describe: describe)
                 answer.append(item)
             }
-            completion(answer)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            completion(.success(answer))
+        } catch {
+            completion(.failure(CoreDataError.somethingError))
         }
     }
     
 //    MARK: - Delete
     
-    func delete(nickname: String) {
+    func delete(nickname: String, comletion: @escaping(ResponseStatus<Bool>) -> Void) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Completed")
         fetchRequest.predicate = NSPredicate(format: "nickname == %@", nickname)
         
@@ -165,8 +173,9 @@ class DatabaseService {
             guard let item = result.first as? NSManagedObject else { return }
             context.delete(item)
             try context.save()
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            comletion(.success(true))
+        } catch {
+            comletion(.failure(CoreDataError.somethingError))
         }
     }
 }

@@ -45,4 +45,8 @@ class MockCompletedView: CompletedViewProtocol {
     func visibleTitle() {
         self.result = true
     }
+    
+    func presentAlert(title: String, message: String) {
+        
+    }
 }

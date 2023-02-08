@@ -13,6 +13,7 @@ protocol TravelTimePresenterProtocol: AnyObject {
     var router: TravelTimeRouterProtocol? { get set }
     func updateInformation()
     func presentLocalInformation(_ answer: [Asteroid])
+    func presentAlert(title: String, message: String)
 }
 
 final class TravelTimePresenter: TravelTimePresenterProtocol {
@@ -84,5 +85,9 @@ final class TravelTimePresenter: TravelTimePresenterProtocol {
             travelTime.append(travel)
         }
         return travelTime
+    }
+    
+    func presentAlert(title: String, message: String) {
+        view?.presentAlert(title: title, message: message)
     }
 }

@@ -14,6 +14,7 @@ protocol HomePresenterProtocol: AnyObject {
     func sendToFlight(nickname: String, describe: String)
     func getNickname()
     func setNickname(_ result: Set<String>)
+    func presentAlert(title: String, message: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -58,5 +59,9 @@ final class HomePresenter: HomePresenterProtocol {
     
     func setNickname(_ result: Set<String>) {
         nicknameSet = result
+    }
+    
+    func presentAlert(title: String, message: String) {
+        view?.presentAlert(title: title, message: message)
     }
 }

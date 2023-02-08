@@ -28,15 +28,27 @@ final class CompletedInteractor: CompletedInteractorProtocol {
     
     func loadInformation() {
         DispatchQueue.main.async {
-            DatabaseService.shared.loadCompleted { answer in
-                self.presenter?.setInformation(answer)
+            DatabaseService.shared.loadCompleted { response in
+                switch response {
+                case .success(let answer):
+                    self.presenter?.setInformation(answer)
+                case .failure(let error):
+                    self.presenter?.presentAlert(title: "Ошибка", message: error.localizedDescription)
+                }
             }
         }
     }
     
     func deleteCompleted(nickname: String) {
         DispatchQueue.main.async {
-            DatabaseService.shared.delete(nickname: nickname)
+            DatabaseService.shared.delete(nickname: nickname) { response in
+                switch response {
+                case .success(_):
+                    break
+                case .failure(let error):
+                    self.presenter?.presentAlert(title: "Ошибка", message: error.localizedDescription)
+                }
+            }
         }
     }
 }

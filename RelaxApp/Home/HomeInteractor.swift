@@ -27,8 +27,13 @@ final class HomeInteractor: HomeInteractorProtocol {
     
     func getNickname() {
         DispatchQueue.main.async {
-            DatabaseService.shared.loadNickname { result in
-                self.presenter?.setNickname(result)
+            DatabaseService.shared.loadNickname { response in
+                switch response {
+                case .success(let result):
+                    self.presenter?.setNickname(result)
+                case .failure(let error):
+                    self.presenter?.presentAlert(title: "Ошибка", message: error.localizedDescription)
+                }
             }
         }
     }

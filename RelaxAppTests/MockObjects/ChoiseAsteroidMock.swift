@@ -26,6 +26,10 @@ class MockChoiseAsteroidView: ChoiseAsteroidViewProtocol {
     func setDate(_ days: [RelaxApp.Days]) {
         self.days = days
     }
+    
+    func presentAlert(title: String, message: String) {
+        
+    }
 }
 
 class MockChoiseAsteroidInteractor: ChoiseAsteroidInteractorProtocol {
